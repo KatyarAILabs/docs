@@ -1,33 +1,71 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: What is Katyar?
+
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+import { Callout } from 'nextra/components' // optional — remove if not using Nextra
 
-## Welcome
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+**Katyar is the first purpose-built security and governance operating system for autonomous AI agents in the enterprise.**
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+It is the control plane that sits between your AI agents and your critical enterprise systems — ensuring every action is **authenticated**, **authorized**, **inspected for intent**, **auditable**, and — when the stakes are high — **approved by a human**.
 
-## Authentication
+Katyar closes the **AI Trust Gap** that is currently preventing most large organizations from moving from experimental pilots to production-scale autonomous agents.
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+## The Problem Katyar Solves
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
+In 2026, enterprises face a painful reality:
+
+- AI agents are powerful but behave like **ghost users** — no real identity, excessive privileges, impossible to audit
+- Traditional security tools (firewalls, WAFs, API gateways) are blind to **agent intent** and **semantic attacks** (prompt injection, jailbreaking, memory poisoning)
+- High-risk actions — moving money, changing production infrastructure, sending mass communications, accessing PII — happen automatically with **no oversight**
+- Regulators are already demanding **human-in-the-loop controls**, **explainability**, and **full audit trails** for agentic systems (EU AI Act, NIST, UK ICO, DORA, etc.)
+- 40%+ of early agentic projects are being cancelled or delayed due to unaddressed governance and risk exposure (Gartner 2026)
+
+The result: organizations are stuck in **“skeptical adoption”** — they want autonomy, but they don’t trust it.
+
+## What Katyar Actually Does
+
+Katyar turns **zero-trust principles into zero-trust autonomy** by enforcing four layers of protection in real time:
+
+1. **Strong Federated Identity**  
+   Every agent is anchored to an enterprise identity (Auth0/Okta OIDC) — no more anonymous or static API-key ghost agents.
+
+2. **Semantic Firewall**  
+   Real-time inspection of prompts, tool calls, and outputs to detect and block prompt injection, jailbreaks, PII leakage, secrets exfiltration, and malicious intent (powered by guard models + rule-based engines).
+
+3. **Policy Engine + MCP Hub**  
+   Fine-grained, intent-aware authorization: which agents can see/call which tools, with what parameters, under what conditions. Native Model Context Protocol (MCP) support ensures schema-safe, filtered tool access.
+
+4. **Async Human-in-the-Loop (HITL)**  
+   High-risk decisions (e.g. refunds > $1,000, production deploys, bulk emails) automatically pause and route to Slack/Teams/dashboard for human review — with timeout, escalation, and full audit trail.
+
+## Key Outcomes Enterprises Get with Katyar
+
+| Before Katyar                              | After Katyar                                      |
+|--------------------------------------------|---------------------------------------------------|
+| Ghost agents with unlimited access         | Every action tied to verifiable enterprise identity |
+| No visibility into what agents are doing   | Real-time dashboard + complete signed audit logs  |
+| Prompt injection succeeds regularly        | Semantic firewall blocks most attacks in &lt;100ms   |
+| High-risk actions run fully autonomously   | Graduated HITL + approval workflows               |
+| Auditors ask for months of manual evidence | One-click compliance reports and exports          |
+| Slow, fearful rollout of agents            | Safe, accelerated path to production autonomy     |
+
+## Who Should Use Katyar?
+
+- Enterprises already running or piloting **agentic workflows** (customer service, data analysis, DevOps automation, sales enablement, multi-agent orchestration)
+- Teams in regulated industries (financial services, healthcare, insurance, government, critical infrastructure)
+- Organizations subject to **EU AI Act**, **DORA**, **SOC 2**, **ISO 42001**, **NIST AI RMF**, or similar frameworks
+- Any company that wants to move beyond chat-based GenAI into **action-oriented autonomous agents** without taking massive security and compliance risk
+
+## The Bottom Line
+
+In 2024–2025, generative AI was mostly about **conversation**.  
+In 2026 and beyond, AI is about **action**.
+
+Katyar is the platform that makes those actions **safe**, **auditable**, **compliant**, and **enterprise-ready** — so your organization can finally unlock the full economic potential of autonomous agents without betting the company on un-governed autonomy.
+
+<div style={{ marginTop: '2rem', fontWeight: 'bold', fontSize: '1.2rem' }}>
+Welcome to Katyar.  
+Let’s build the autonomous enterprise — together, and securely.
+</div>
