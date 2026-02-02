@@ -69,6 +69,16 @@
             ]
           },
           {
+            "group": "Integration",
+            "pages": [
+              "api-reference/integration/overview",
+              "api-reference/integration/agentIdentity",
+              "api-reference/integration/semanticProtection",
+              "api-reference/integration/policy&governance",
+              "api-reference/integration/humanintheloop"
+            ]
+          },
+          {
             "group": "Endpoint examples",
             "pages": [
               "api-reference/endpoint/get",
