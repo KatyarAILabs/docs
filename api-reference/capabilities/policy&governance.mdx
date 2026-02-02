@@ -1,0 +1,31 @@
+---
+title: Policy & Governance Engine
+---
+
+
+
+Intent-aware authorization — decide what agents can do based on business context, not just endpoints.
+
+### Key Features
+
+- Visual policy builder (no-code for most rules)
+- Cedar policy language for complex conditions
+- Default-deny model
+- Conditions: amount, time-of-day, user context, environment, agent group
+- Native **MCP Hub** — tool discovery + schema validation + parameter enforcement
+- Tool visibility filtering (marketing agent never sees HR database)
+
+### Common Patterns Supported
+
+- Escalation ladder (refunds `$100` auto, `$10k` VP approval)
+- Time-based (outside business hours → require approval)
+- Environment separation (prod = strict, dev = log-only)
+- Gradual rollout (week 1: monitor, week 4: enforce)
+
+### Outcomes
+
+- Enforce business rules directly in the agent runtime
+- Prevent shadow AI from accessing unauthorized systems
+- One-click policy changes across hundreds of agents
+
+→ Examples: [Policy Management](/policy-management)

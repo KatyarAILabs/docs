@@ -53,7 +53,19 @@
           {
             "group": "API documentation",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/introduction",
+              "api-reference/quickstart",
+              "api-reference/installation&setup"
+            ]
+          },
+          {
+            "group": "Capabilities",
+            "pages": [
+              "api-reference/capabilities/overview",
+              "api-reference/capabilities/agentIdentity",
+              "api-reference/capabilities/semanticProtection",
+              "api-reference/capabilities/policy&governance",
+              "api-reference/capabilities/humanintheloop"
             ]
           },
           {
@@ -102,15 +114,15 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {

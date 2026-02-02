@@ -1,0 +1,25 @@
+---
+title: Installation & Setup
+description: Complete guide to installing the Katyar SDK and configuring it for production use
+sidebar_position: 3
+---
+
+
+
+This guide covers everything you need to install, authenticate, and configure Katyar properly — from basic pip install to production-ready best practices.
+
+If you're just evaluating Katyar, start with the [Quick Start](/quick-start) instead — it gets you running in under 10 minutes with minimal configuration.
+
+## Prerequisites
+
+- Python 3.8 or higher
+- pip 20+ (recommended: upgrade with `python -m pip install --upgrade pip`)
+- Access to a Katyar account (sign up at [app.katyar.ai](https://app.katyar.ai))
+- Outbound WebSocket access (port 443) to `wss://gateway.katyar.ai` (for real-time event streaming)
+
+## Step 1: Install the SDK
+
+### Basic Installation
+
+```bash
+pip install katyar

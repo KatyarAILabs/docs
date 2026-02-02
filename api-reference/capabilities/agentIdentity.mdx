@@ -1,0 +1,25 @@
+---
+title: Agent Identity & Access Control
+---
+
+
+
+Katyar eliminates “ghost agents” by giving every agent a **verifiable enterprise identity**.
+
+### Key Features
+
+- Federated authentication via **Auth0 / Okta** (OIDC / JWT)
+- Agents authenticate with short-lived JWTs (machine-to-machine or on-behalf-of flows)
+- NATS Auth Callout verifies identity on every connection
+- **Task Tokens** — dynamically down-scoped tokens per task / conversation (e.g. 30-minute TTL, only allow SQL read)
+- Optional hardware/container **attestation** (AWS Nitro, confidential containers)
+- Agent groups & role-based scoping (marketing-agents, finance-agents, devops-agents)
+
+### Outcomes
+
+- Every action is traceable to a real enterprise principal
+- No static API keys embedded in code or containers
+- Granular access: an agent sees only the tools its identity permits
+- Full non-repudiation for audits and incident response
+
+→ Learn more: [Identity Federation Flow](/architecture/identity-federation)
