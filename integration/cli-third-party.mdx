@@ -1,0 +1,30 @@
+---
+title: CLI & Third-Party Integrations
+description: Katyar CLI + Slack, Teams, Webhooks, Identity Providers
+sidebar_position: 4
+---
+
+# CLI & Third-Party Integrations
+
+### 1. Katyar CLI
+
+Powerful terminal tool for admins and DevOps.
+
+**Installation**
+
+```bash
+npm install -g @katyar-ai/cli
+# or macOS
+brew install katyar-ai/tap/katyar
+```
+
+
+### 2. Common Commands
+```bash
+katyar login
+katyar workspaces create --name prod --env production
+katyar agents list --workspace prod
+katyar policies apply -f finance-rules.yaml
+katyar watch --agent finance-bot
+katyar audit export --from 2026-01-01 --format csv
+```

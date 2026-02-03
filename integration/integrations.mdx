@@ -1,0 +1,31 @@
+---
+title: SDK & Integrations
+description: Official SDKs, CLI, framework wrappers, and third-party tools for Katyar AI Governance
+sidebar_position: 1
+---
+
+
+
+Katyar provides production-grade tools to secure your AI agents with minimal changes to your existing code. Choose the right integration for your stack:
+
+- [Python SDK](/integrations/python) – Full-featured, async-first SDK for most users  
+- [TypeScript / JavaScript SDK](/integrations/typescript) – Modern Node.js / browser support  
+- [Framework Wrappers](/integrations/frameworks) – LangChain, CrewAI, AutoGen, and more  
+- [CLI & Third-Party Tools](/integrations/cli-third-party) – Command-line management + Slack, webhooks, identity providers  
+
+All SDKs connect via secure WebSocket to the Katyar gateway, enforce identity, policies, semantic firewall, and HITL automatically.
+
+### Quick Comparison
+
+| Feature                     | Python SDK          | TypeScript SDK      | CLI                 | Framework Wrappers |
+|-----------------------------|---------------------|---------------------|---------------------|--------------------|
+| Async / Promise support     | Yes                 | Yes                 | —                   | Yes                |
+| Decorator / Wrapper         | @secure             | session.callTool    | —                   | Yes                |
+| LangChain / CrewAI native   | Yes                 | Planned             | —                   | Yes                |
+| Real-time event listeners   | Yes                 | Yes                 | Watch command       | Yes                |
+| Error handling (Policy/HITL)| Rich classes        | Rich classes        | —                   | Propagated         |
+| Use case                    | Backend / ML agents | Services / APIs     | Admin / DevOps      | Framework users    |
+
+Start here → [Quick Start](/quick-start) to test any SDK in under 10 minutes.
+
+Need something custom? Reach out on Discord or support@katyar.ai — we're adding integrations based on demand.

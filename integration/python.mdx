@@ -1,0 +1,33 @@
+---
+title: Python SDK
+description: Official Python SDK for Katyar – secure agents with decorators and sessions
+sidebar_position: 2
+---
+
+
+
+The primary SDK for securing Python-based AI agents.
+
+**Package**: `katyar-ai`
+
+### Installation
+
+```bash
+pip install katyar-ai
+# Recommended extras
+pip install "katyar-ai[langchain,crewai,autogen,hitl]"
+```
+
+### Quick Start
+
+```python
+from katyar import KatyarClient
+
+client = KatyarClient(api_key="nx_live_abc123xyz")
+
+@client.secure(agent_name="customer-service")
+async def handle_query(query: str):
+    # Your normal agent / LLM code
+    result = await your_llm.ainvoke(query)
+    return result.content
+```

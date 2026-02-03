@@ -1,0 +1,34 @@
+---
+title: TypeScript / JavaScript SDK
+description: Official TS/JS SDK for Katyar – secure Node.js and browser agents
+sidebar_position: 3
+---
+
+
+Modern, Promise-based SDK for Node.js, Next.js, Deno, or any JavaScript environment.
+
+**Package**: `@katyar-ai/sdk`
+
+### Installation
+
+```bash
+npm install @katyar-ai/sdk
+# or yarn / pnpm
+```
+
+### QuickStart
+
+```typescript
+import { KatyarClient } from "@katyar-ai/sdk";
+
+const client = new KatyarClient({
+    apiKey: "your-api-key",
+});
+
+const secureAgent = client.createAgent({
+    name: "my-agent",
+    description: "My secure agent",
+});
+
+secureAgent.invoke("Hello, world!");
+```
