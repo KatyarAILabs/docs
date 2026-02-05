@@ -1,0 +1,84 @@
+---
+title: EU-14.3 – Real-time Intervention
+description: EU AI Act Article 14.4(c) requirement for real-time human intervention in high-risk AI systems
+---
+
+
+**Framework**: EU AI Act  
+**Article**: 14.4(c)
+
+**Clause Description**  
+Human oversight measures shall enable the individuals to whom human oversight is assigned to **intervene to interrupt**, through a "stop" button or a similar procedure, the functioning of the high-risk AI system.
+
+**Why Implemented**  
+High-risk AI can behave unexpectedly, escalate risks rapidly, or enter unsafe states during operation. Real-time intervention capability allows humans to immediately halt the system when anomalies, malfunctions, or foreseeable misuse are detected — preventing harm to health, safety, fundamental rights, or critical infrastructure before damage occurs.
+
+**How Katyar Satisfies It**
+
+Katyar implements real-time intervention through its **policy engine’s deny mechanism**, which acts as an equivalent to a "stop" procedure by preventing execution of high-risk actions before they reach tools or external systems.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- At least one active policy contains an explicit 'deny' rule (or equivalent blocking condition) that can interrupt agent execution.
+
+**Evidence Collected (Quantitative)**  
+- Number of policies that include 'deny' or blocking actions  
+- Specific rule conditions (e.g., amount > $10,000, destructive SQL keywords, bulk sensitive operations)  
+- Historical count of denied/blocked events triggered by these rules (last 30 days)  
+- Latency between detection and interruption (typically < 100 ms)
+
+**Katyar Features That Enable Real-time Intervention**
+
+- **Semantic Firewall + Policy Engine**  
+  In-line inspection blocks execution before any tool call or external action occurs.
+
+- **Conditional Deny Rules**  
+  Policies support precise conditions (e.g., tool = "database", query contains "DROP" → deny; amount > 5000 → deny).
+
+- **Immediate Agent Interruption**  
+  On deny: workflow halts, custom error message returned to agent, no further processing occurs.
+
+- **Semantic & Keyword Blocking**  
+  Prompt injection, jailbreak attempts, or dangerous commands are caught early via guardrails.
+
+- **Audit-Ready Logging**  
+  Every denied/blocked action is signed and logged with:  
+  - Full request payload  
+  - Matching policy ID and rule  
+  - Reason for denial  
+  - Timestamp (millisecond precision)
+
+- **Dashboard Visibility**  
+  Blocked events appear in real-time event stream with red indicators, policy match details, and quick links to the blocking policy.
+
+**Remediation Steps to Strengthen This Control**
+
+1. Create at least one policy with an explicit 'deny' action for a clearly high-risk pattern.  
+   Examples:  
+   - Block destructive SQL (DROP, DELETE without WHERE)  
+   - Block refunds > $10,000 without escalation  
+   - Block external API calls to unapproved domains
+
+2. Test the policy by running agent scenarios that would trigger the deny rule.
+
+3. Verify denials appear in:  
+   - Real-time Events feed (red blocked icons)  
+   - Audit logs (search for outcome = "denied" or "blocked")  
+   - Compliance dashboard → EU-14.3 card
+
+4. Aim for multiple deny rules covering different risk vectors to show comprehensive coverage.
+
+**Auditor Expectations**  
+Regulators expect to see:  
+- Demonstration that intervention is **immediate** (execution stopped before harm)  
+- Evidence of **actual blocking events** in logs (not just rule existence)  
+- Clear mapping between high-risk scenarios and the deny rules that cover them  
+- Low latency between detection and interruption  
+- Traceability: which policy/rule triggered the stop, and why
+
+Katyar’s deny-based intervention is **faster than manual stop buttons** (sub-100 ms enforcement) while remaining fully auditable and configurable — providing both proactive safety and strong regulatory proof.
+
+---
+
+**Next**: [EU-14.4 – Stop Operation](/compliance/controls/eu-14-4)

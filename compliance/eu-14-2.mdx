@@ -1,0 +1,61 @@
+---
+title: EU-14.2 – Ability to Override AI Decisions
+description: EU AI Act Article 14.4(b) requirement to allow humans to override high-risk AI system outputs
+---
+
+
+
+**Framework**: EU AI Act  
+**Article**: 14.4(b)
+
+**Clause Description**  
+Human oversight measures shall enable the individuals to whom human oversight is assigned to **override, or not to use**, the output produced by the high-risk AI system.
+
+**Why Implemented**  
+High-risk AI systems can generate outputs that are incorrect, biased, hallucinated, unsafe, or contrary to organizational values or legal obligations. The ability to override ensures that humans retain ultimate decision-making authority, protects affected individuals from harm, prevents cascading errors, and upholds accountability — a core principle of the EU AI Act for trustworthy AI deployment.
+
+**How Katyar Satisfies It**
+
+Katyar delivers a **traceable, auditable override mechanism** through its Human-in-the-Loop (HITL) approval workflow. The control is considered satisfied when real override behavior has been demonstrated in production or testing data.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- At least one human-in-the-loop approval request has been explicitly **denied** (overridden) in the last 30 days.
+
+**Evidence Collected (Quantitative)**  
+- Number of HITL events with status = 'denied'  
+- Associated policy ID(s) that triggered the approval request  
+- Reason/comment provided by the human approver (mandatory field)  
+- Approver identity and exact timestamp of the denial  
+- Original AI-suggested action vs. final overridden outcome
+
+**Katyar Features That Enable Override Capability**
+
+- **Clear Deny Action** — Prominent "Deny" button in Slack, Teams, dashboard, or custom approval UI  
+- **Mandatory Justification** — Approvers must provide a reason/comment for every denial (stored permanently in audit trail)  
+- **Immediate Interruption** — Denial instantly stops the agent workflow and prevents tool execution  
+- **Custom Error Feedback** — Agent receives a structured error message explaining the denial (configurable)  
+- **Audit-Ready Logging** — Every override is cryptographically signed with:  
+  - Original prompt/tool call  
+  - AI output that was overridden  
+  - Human decision (deny + comment)  
+  - Approver identity  
+  - Timestamp (millisecond precision)  
+- **Visibility in Dashboard** — Denials appear in real-time event stream, Approvals tab, and Compliance activity feed
+
+**Remediation Steps to Strengthen This Control**
+
+1. Ensure at least one approval policy is active that can realistically be denied (e.g. high-value refund, destructive database query, bulk sensitive action).  
+2. Run test scenarios or live agent usage that triggers the approval flow.  
+3. Have a human reviewer explicitly **deny** at least one request (do not auto-approve everything).  
+4. Verify the denial appears in:  
+   - Approvals tab (with comment)  
+   - Audit logs (search for status='denied')  
+   - Compliance dashboard → EU-14.2 card  
+5. Optionally simulate 3–5 denials to build stronger evidence for auditors.
+
+**Auditor Expectations**  
+Regulators will look for:  
+- Proof that overrides have **actually occurred** (not just theoretical capability)  
+- Clear documentation of **why

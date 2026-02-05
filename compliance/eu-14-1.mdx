@@ -1,0 +1,79 @@
+---
+title: EU-14.1 – Meaningful Human Oversight
+description: EU AI Act Article 14.1 requirement for effective human oversight of high-risk AI systems
+---
+
+
+
+**Framework**: EU AI Act  
+**Article**: 14.1
+
+**Clause Description**  
+High-risk AI systems shall be designed and developed in such a way, including with appropriate human–machine interface tools, that they can be **effectively overseen** by natural persons during the period in which the AI system is in use. Oversight shall aim to prevent or minimize risks to health, safety or fundamental rights that may emerge when the high-risk AI system is used in accordance with its intended purpose or under conditions of reasonably foreseeable misuse.
+
+**Why Implemented**  
+This is one of the cornerstone requirements of the EU AI Act for high-risk systems. It ensures that AI does not operate with full autonomy in scenarios that could affect people’s health, safety, or fundamental rights. Without meaningful human oversight, organizations risk automation bias, undetected harmful decisions, loss of accountability, cascading failures, and severe legal exposure under the Regulation.
+
+**How Katyar Satisfies It**
+
+Katyar provides a **production-grade, auditable implementation** of meaningful human oversight through its **Async Human-in-the-Loop (HITL)** system. The control is evaluated automatically using real workspace activity.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when both of the following are true:
+
+1. At least one active approval policy exists for high-risk actions  
+2. At least one human approval or denial decision has been recorded in the last 30 days
+
+**Evidence Collected (Quantitative)**  
+- Number of active HITL/approval policies  
+- Count of decided HITL events (approved + denied) in last 7 and 30 days  
+- Average human response time (seconds)  
+- Oversight coverage percentage (% of high-risk tool calls that trigger HITL)  
+- Escalation rate and timeout occurrences
+
+**Katyar Features That Enable Meaningful Oversight**
+
+- **Rich Contextual Approval Interface**  
+  Approvers receive the full original prompt, tool name, exact arguments, risk score, conversation history, and previous similar decisions.
+
+- **Multi-Channel Delivery**  
+  Approvals are routed via Slack, Microsoft Teams, email, or the Katyar dashboard — where your team already works.
+
+- **Smart Escalation & Timeouts**  
+  Configurable timeout (e.g. 5 minutes) → automatic escalation to secondary approvers or on-call team.
+
+- **Delegation & Bulk Actions**  
+  Managers can delegate approvals or handle multiple pending requests at once.
+
+- **Mandatory Comment & Justification**  
+  Every decision (especially denials) requires a comment — preserved in the audit trail.
+
+- **Real-time Dashboard Queue**  
+  Pending approvals are visible with priority indicators, SLA timers, and search/filter capabilities.
+
+**Remediation Steps to Strengthen This Control**
+
+1. Create at least one approval policy targeting a clearly high-risk action  
+   (examples: refunds > $1,000, production deploys, bulk email sends, database writes).
+
+2. Run test scenarios or real agent usage that triggers the policy.
+
+3. Ensure humans actively review and respond to several requests.
+
+4. Check the **Compliance Dashboard → EU-14.1 card** to confirm the control is satisfied.
+
+5. Monitor average response time and coverage metrics in the dashboard.
+
+**Auditor Expectations**  
+Regulators will look for:  
+- Proof that oversight is **actually occurring** (real human decisions, not just configuration)  
+- Reasonable human response times (< 5–10 minutes for critical actions)  
+- Clear justification/comments for each decision  
+- Coverage of the most impactful/high-risk scenarios  
+- Traceability: who overrode what, when, and why
+
+Katyar exceeds minimum requirements by combining **asynchronous workflow**, **rich context delivery**, **escalation logic**, and **quantitative metrics** — making oversight both practical for teams and demonstrably effective for compliance audits.
+
+---
+
+**Next**: [EU-14.2 – Ability to Override AI Decisions](/compliance/controls/eu-14-2)

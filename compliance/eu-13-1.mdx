@@ -1,0 +1,75 @@
+---
+title: EU-13.1 – Transparency to Deployers & Users
+description: EU AI Act Article 13 requirement for sufficient transparency to enable appropriate use and interpretation of high-risk AI outputs
+---
+
+
+
+**Framework**: EU AI Act  
+**Article**: 13
+
+**Clause Description**  
+High-risk AI systems shall be designed and developed in such a way to ensure **sufficient transparency** to enable deployers to interpret the system’s output and use it appropriately. High-risk AI systems shall be accompanied by instructions of use in an appropriate digital format or otherwise that include concise, complete and clear information that is relevant, accessible and comprehensible to deployers.
+
+**Why Implemented**  
+Transparency enables deployers (and indirectly end-users) to understand how and why the AI system arrived at a particular output. This reduces misuse, builds trust, allows meaningful contestability, and supports safe and appropriate application of AI decisions — especially when outputs affect health, safety, or fundamental rights. Lack of transparency can lead to over-reliance on opaque decisions, misinterpretation of results, or inability to challenge unfair outcomes.
+
+**How Katyar Satisfies It**
+
+Katyar implements transparency by **capturing and persisting full metadata** for every agent interaction, tool call, and decision — making outputs interpretable and traceable.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- More than **90%** of logged events in the last 30 days include complete metadata (input prompt, context, tool details, output, latency, risk score, policy outcome).
+
+**Evidence Collected (Quantitative)**  
+- Total events in the last 30 days  
+- Percentage of events with full metadata completeness  
+  (required fields: timestamp, agent_id, tool, method, arguments, response, context, outcome, latency_ms)  
+- Breakdown of missing fields (if any)  
+- Sample event payloads showing input/output transparency
+
+**Katyar Features That Enable Transparency**
+
+- **Full Payload & Context Logging**  
+  Every event automatically captures: original user prompt, conversation history (if applicable), tool name/method, exact input arguments, raw AI output, processed response, risk score, policy decision, and latency.
+
+- **Structured & Searchable Audit Logs**  
+  Events are stored in JetStream with millisecond precision; dashboard allows filtering, inspection, and export of full event details.
+
+- **Output Attribution**  
+  Logs clearly show which agent/tool produced which output, with agent_name and session_id always present.
+
+- **Explainability Hooks**  
+  Context object can include custom metadata (e.g., user_id, decision rationale, confidence score) passed by the agent.
+
+- **One-Click Export for Deployers**  
+  CSV/JSON export of event logs with full transparency fields — ready for deployer review or regulatory submission.
+
+- **Real-time Event Stream**  
+  Deployers can watch live activity in the dashboard with complete input/output visibility.
+
+**Remediation Steps to Strengthen This Control**
+
+1. Ensure agents are properly onboarded via `katyar.init()` or SDK session creation (un-onboarded agents contribute 0% to transparency score).  
+2. Run normal agent workflows that generate tool calls, policy evaluations, and guardrail checks.  
+3. Verify that events include rich context:  
+   - Pass meaningful `context` dicts in `call_tool()` (user_id, session_id, channel, etc.)  
+   - Ensure tools return structured responses (not just strings)  
+4. Check the Compliance dashboard → EU-13.1 card to confirm >90% metadata completeness.  
+5. If below threshold: review recent events in Observability tab, identify missing fields, and adjust agent code/SDK usage.
+
+**Auditor Expectations**  
+Regulators expect to see:  
+- **High completeness** of metadata across most events (ideally >90%)  
+- **Traceability** from user input → AI reasoning → final output  
+- **Accessibility** — logs are exportable and interpretable by non-technical deployers  
+- **Relevance** — captured data helps explain why a particular output was produced  
+- **Consistency** — transparency is maintained even under high load or error conditions
+
+Katyar goes beyond minimum requirements by providing **structured, searchable, export-ready logs** with full input/output transparency — turning regulatory compliance into a practical tool for debugging, trust-building, and responsible AI deployment.
+
+---
+
+**Next**: [GOVERN-1.1 – Governance Structure](/compliance/controls/govern-1-1)

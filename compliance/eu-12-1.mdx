@@ -1,0 +1,75 @@
+---
+title: EU-12.1 – Record Keeping & Auditability
+description: EU AI Act Article 12 requirement for automatic logging in high-risk AI systems
+---
+
+
+
+**Framework**: EU AI Act  
+**Article**: 12
+
+**Clause Description**  
+Providers of high-risk AI systems shall keep the logs referred to in paragraph 1 automatically for a period of at least **six months**, unless provided otherwise in Union or national law. The logs shall be kept in a manner that ensures their completeness, integrity and confidentiality. They shall be made available to national competent authorities upon a reasoned request.
+
+**Why Implemented**  
+Reliable, automatic logging is essential for post-market monitoring, incident investigation, regulatory oversight, and accountability. Without comprehensive records, it is impossible to reconstruct AI system behavior, identify root causes of failures, prove compliance, or respond to complaints and audits. The six-month retention period balances operational feasibility with the need for long-term traceability in high-risk contexts.
+
+**How Katyar Satisfies It**
+
+Katyar implements record-keeping through its **cryptographically signed, persistent event logging system** powered by NATS JetStream, capturing every relevant agent interaction with full detail and integrity guarantees.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- At least **10 events** have been recorded in the last 7 days (proxy for active logging and system usage).
+
+**Evidence Collected (Quantitative)**  
+- Total number of events logged in the last 7 days  
+- Breakdown by event type (tool.call, policy.denied, hitl.approved, hitl.denied, threat.detected, etc.)  
+- Event completeness percentage (presence of required fields: timestamp, agent_id, tool, payload, outcome)  
+- Storage integrity checks (JetStream replication and signed payloads)  
+- Retention configuration status (current retention period)
+
+**Katyar Features That Enable Record Keeping**
+
+- **Automatic, Comprehensive Logging**  
+  Every agent action, policy decision, HITL interaction, and guardrail detection is captured without manual intervention.
+
+- **Full Payload Capture**  
+  Logs include: original prompt, tool name, method, arguments, context, response, latency, risk score, and outcome.
+
+- **Cryptographic Integrity**  
+  Events are signed and persisted in JetStream with tamper-evident hashing.
+
+- **Long-Term Retention**  
+  Configurable retention (7 days default, up to 7 years for enterprise); automatic export options to S3/GCS.
+
+- **Search & Export**  
+  Dashboard allows filtering by time, agent, tool, outcome; one-click CSV/JSON export for auditors.
+
+- **Real-time Visibility**  
+  Events stream live in the dashboard with millisecond timestamps and full inspection.
+
+**Remediation Steps to Strengthen This Control**
+
+1. Ensure at least one agent is actively running and making tool calls (onboard via `katyar.init()` if not already).  
+2. Generate activity: run test queries, trigger policies, approvals, or guardrail detections.  
+3. Aim for 10+ events in a 7-day window (normal usage usually achieves this quickly).  
+4. Check the Compliance dashboard → EU-12.1 card to confirm the threshold is met.  
+5. Verify logs are complete: open a recent event in the Observability tab and inspect all fields.  
+6. (Recommended) Increase retention to 6+ months in workspace settings for full EU compliance alignment.
+
+**Auditor Expectations**  
+Regulators expect to see:  
+- **Automatic logging** without gaps (every relevant action recorded)  
+- **Completeness** — all required fields present (who, what, when, why, outcome)  
+- **Integrity** — evidence that logs cannot be tampered with  
+- **Availability** — ability to export logs on request (CSV/JSON)  
+- **Retention** — confirmation that logs are kept for at least 6 months  
+- **Usage proof** — recent events demonstrating active system monitoring
+
+Katyar’s logging exceeds the minimum by providing **real-time visibility**, **searchability**, **export readiness**, and **integrity guarantees** — turning record-keeping from a compliance burden into a powerful observability and debugging tool.
+
+---
+
+**Next**: [EU-13.1 – Transparency to Deployers & Users](/compliance/controls/eu-13-1)

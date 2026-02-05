@@ -41,6 +41,21 @@
             ]
           },
           {
+            "group": "Compliance",
+            "pages": [
+              "compliance/eu-14-1",
+              "compliance/eu-14-2",
+              "compliance/eu-14-3",
+              "compliance/eu-14-4",
+              "compliance/eu-9-1",
+              "compliance/eu-12-1",
+              "compliance/eu-13-1",
+              "compliance/govern-1-1",
+              "compliance/map-1-1",
+              "compliance/map-1-2"
+            ]
+          },
+          {
             "group": "AI tools",
             "pages": [
               "ai-tools/cursor",
@@ -66,18 +81,7 @@
       }
     ],
     "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
+      "anchors": []
     }
   },
   "logo": {

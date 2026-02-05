@@ -1,0 +1,61 @@
+---
+title: MAP-1.2 – Risk Categorization
+description: NIST AI RMF MAP 1.2 requirement for categorization of AI systems based on risk
+---
+
+
+**Framework**: NIST AI Risk Management Framework (RMF)  
+**Category**: Map  
+**Subcategory**: MAP 1.2
+
+**Clause Description**  
+AI systems are categorized based on their potential risks, impact, and intended use. Organizations should classify AI systems according to factors such as intended purpose, domain of application, potential impact on individuals or society, level of autonomy, data sensitivity, and other relevant risk indicators. This categorization informs the prioritization and tailoring of subsequent risk management activities.
+
+**Why Implemented**  
+Not all AI systems present the same level of risk. Risk categorization enables proportionate governance — applying stricter controls, monitoring, and oversight to higher-risk systems while allowing lighter processes for low-risk ones. It prevents both under- and over-regulation, optimizes resource allocation, and supports defensible decision-making when explaining risk treatment to stakeholders or auditors.
+
+**How Katyar Satisfies It**
+
+Katyar supports MAP-1.2 by allowing **explicit risk_level metadata** to be attached to each agent during registration or configuration — enabling clear categorization and risk-based policy enforcement.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- At least **one agent** has an explicit `risk_level` value set (e.g., low, medium, high, critical).
+
+**Evidence Collected (Quantitative)**  
+- Number of agents with a non-null `risk_level` field  
+- Distribution of risk levels across the agent inventory (e.g., 60% medium, 20% high)  
+- Agent metadata showing risk_level assignment (name, onboarded timestamp, tools)  
+- Policies or guardrails that reference or condition on risk_level
+
+**Katyar Features That Enable Risk Categorization**
+
+- **Risk Level Metadata Field**  
+  Agents can be tagged with `risk_level` during SDK initialization or via dashboard/CLI (values: low, medium, high, critical, or custom).
+
+- **Risk-Based Policy Scoping**  
+  Policies can condition on agent risk_level (e.g., "If agent.risk_level >= high → require approval").
+
+- **Dashboard Visualization**  
+  Agents list shows risk_level badges (color-coded: green/low, yellow/medium, orange/high, red/critical) for quick scanning.
+
+- **Inventory Filtering**  
+  Filter agents by risk level in dashboard or CLI (`katyar agents list --risk-level high`).
+
+- **Compliance Impact**  
+  Higher-risk agents contribute more weight to certain compliance controls and trigger stricter evaluation thresholds.
+
+- **Audit Trail**  
+  Risk level assignments/changes are logged with who set it and when.
+
+**Remediation Steps to Strengthen This Control**
+
+1. During agent onboarding (via SDK or dashboard), explicitly set a `risk_level`:  
+   ```python
+   # Example in Python SDK
+   client = KatyarClient(api_key="...")
+   await client.connect(
+       agent_name="payment-processor",
+       metadata={"risk_level": "high"}
+   )

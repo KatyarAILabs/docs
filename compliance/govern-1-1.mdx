@@ -1,0 +1,78 @@
+---
+title: GOVERN-1.1 – Governance Structure
+description: NIST AI RMF Govern 1.1 requirement for policies, processes, and procedures to manage AI risks and benefits
+---
+
+
+**Framework**: NIST AI Risk Management Framework (RMF)  
+**Category**: Govern  
+**Subcategory**: GOVERN 1.1
+
+**Clause Description**  
+Policies, processes, and procedures are in place to manage identified AI risks and benefits throughout the AI lifecycle. These should include clear governance structures that assign responsibilities, define risk tolerance, and establish mechanisms for ongoing risk monitoring and decision-making related to AI systems.
+
+**Why Implemented**  
+Effective AI governance is foundational to responsible AI deployment. Without structured policies and processes, organizations risk inconsistent risk handling, unclear accountability, overlooked benefits or harms, and inability to demonstrate due diligence to stakeholders, regulators, or auditors. GOVERN-1.1 ensures AI risk management is intentional, systematic, and embedded in organizational culture rather than ad-hoc.
+
+**How Katyar Satisfies It**
+
+Katyar supports GOVERN-1.1 by providing a **centralized, enforceable policy framework** that defines how AI agents are allowed to behave, what risks are mitigated, and how decisions are governed in real time.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- At least **2 enabled policies** exist in the workspace that actively govern agent behavior or risk.
+
+**Evidence Collected (Quantitative)**  
+- Total number of enabled (active) policies  
+- Policy creation and last-updated timestamps (to show ongoing governance)  
+- Diversity of policy coverage (e.g., different tools, risk types, agents)  
+- Recent enforcement events (policy decisions, denials, approvals) linked to these policies
+
+**Katyar Features That Enable Governance Structure**
+
+- **Central Policy Engine**  
+  All agent actions are routed through a unified policy decision point — no agent can bypass governance.
+
+- **Granular & Conditional Policies**  
+  Policies support complex rules (Cedar language or visual builder) based on tool, amount, time, user context, agent group, etc.
+
+- **Default-Deny Model**  
+  Only explicitly allowed actions proceed — enforcing least-privilege governance by design.
+
+- **Versioning & Audit Trail**  
+  Every policy change is versioned and logged with who changed what and when.
+
+- **Policy Recommendations & Gap Analysis**  
+  Dashboard highlights missing governance coverage and suggests new policies.
+
+- **Agent & Tool Scoping**  
+  Policies can apply to specific agent groups or tools, allowing tailored governance structures.
+
+**Remediation Steps to Strengthen This Control**
+
+1. Create at least two distinct policies that address different risk areas or tools:  
+   - Example 1: Approval required for financial transactions > $500  
+   - Example 2: Deny destructive database operations (DROP, DELETE without WHERE)  
+
+2. Enable the policies in the dashboard (toggle on).  
+
+3. Run agent activity that exercises these policies (e.g., trigger a refund request or SQL query).  
+
+4. Confirm in the Compliance dashboard → GOVERN-1.1 card that ≥ 2 enabled policies are recognized.  
+
+5. (Recommended) Add a third policy covering another vector (e.g., PII masking, external API rate limiting) to show broader governance.
+
+**Auditor Expectations**  
+Assessors (internal audit, third-party, NIST alignment reviews) will look for:  
+- Existence of **multiple active policies** that demonstrate intentional risk control  
+- **Evidence of enforcement** (recent policy decisions in logs)  
+- **Ongoing maintenance** (recent policy updates or additions)  
+- **Coverage** — governance applied across key risk areas/tools/agents  
+- **Traceability** — who created/approved policies, when, and how they are enforced
+
+Katyar turns the high-level GOVERN-1.1 requirement into a **concrete, measurable, and enforceable set of controls** — providing both real governance in production and strong, data-backed evidence for NIST RMF assessments.
+
+---
+
+**Next**: [GOVERN-1.2 – Roles & Responsibilities](/compliance/controls/govern-1-2)

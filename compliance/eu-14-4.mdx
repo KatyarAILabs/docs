@@ -1,0 +1,74 @@
+---
+title: EU-14.4 – Stop Operation
+description: EU AI Act Article 14.4(d) requirement to enable humans to fully disregard or stop high-risk AI system outputs
+---
+
+
+
+**Framework**: EU AI Act  
+**Article**: 14.4(d)
+
+**Clause Description**  
+Human oversight measures shall enable the individuals to whom human oversight is assigned to **fully disregard the output produced by the high-risk AI system**.
+
+**Why Implemented**  
+This provision ensures that humans can completely ignore, disable, or nullify AI outputs when they are unreliable, harmful, or inappropriate — preventing any reliance on dangerous or erroneous AI decisions. It is the ultimate safeguard in the oversight chain: if monitoring fails, overrides fail, and intervention is too late, humans must still have the ability to completely stop depending on the AI system. This protects against persistent risks from malfunctioning or compromised high-risk AI.
+
+**How Katyar Satisfies It**
+
+Katyar implements "stop operation" capability through **API key revocation** and **agent disconnection controls**, allowing immediate and complete disabling of AI agent functionality.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- At least one active (non-revoked) API key exists in the workspace that can be used to operate agents.
+
+**Evidence Collected (Quantitative)**  
+- Presence of one or more non-revoked API keys  
+- Number of active API keys tied to the workspace  
+- History of key revocation events (last 90 days)  
+- Agent connection status after revocation (disconnected agents show no activity)
+
+**Katyar Features That Enable Stop Operation**
+
+- **Instant API Key Revocation**  
+  One-click revocation in the dashboard → immediately terminates all agent sessions using that key.
+
+- **Global Kill Switch**  
+  Revoking the primary workspace key stops **all** agents in the workspace from making further tool calls or gateway connections.
+
+- **Agent Disconnection on Revocation**  
+  WebSocket connections drop within seconds; agents receive authentication failure on reconnect attempts.
+
+- **Audit Trail for Stop Actions**  
+  Every revocation is logged with:  
+  - Revoker identity  
+  - Timestamp  
+  - Affected agent(s)  
+  - Reason/comment (optional but recommended)
+
+- **Visibility & Confirmation**  
+  Dashboard shows revoked keys with red status; agent list updates to "Disconnected" or "Stopped" state.
+
+**Remediation Steps to Strengthen This Control**
+
+1. Ensure your workspace has at least one active API key (created during onboarding or in Settings → API Keys).  
+2. Test the stop mechanism:  
+   - Create a test agent using the key  
+   - Revoke the key in the dashboard  
+   - Confirm the agent can no longer connect or call tools (check Events tab for disconnection)  
+3. Document the revocation process in your internal procedures.  
+4. Verify revocation events appear in audit logs (search for "api_key_revoked").
+
+**Auditor Expectations**  
+Regulators expect to see:  
+- Proof that the organization can **immediately stop** AI system operation (key revocation demo)  
+- Evidence that revocation is **effective** (no further agent activity post-revocation)  
+- Traceability: who revoked the key, when, and why  
+- Demonstration in a live or simulated scenario (e.g., emergency stop test)
+
+Katyar’s revocation-based stop operation is **instantaneous**, **centralized**, and **fully auditable** — providing a stronger, more reliable "stop" mechanism than a traditional "stop button" in many legacy systems, while remaining simple for operators and provable for compliance.
+
+---
+
+**Next**: [EU-9.1 – Risk Management System](/compliance/controls/eu-9-1)

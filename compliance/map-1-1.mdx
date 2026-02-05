@@ -1,0 +1,61 @@
+---
+title: MAP-1.1 – System Inventory
+description: NIST AI RMF MAP 1.1 requirement for inventory and documentation of AI systems
+---
+
+
+**Framework**: NIST AI Risk Management Framework (RMF)  
+**Category**: Map  
+**Subcategory**: MAP 1.1
+
+**Clause Description**  
+AI systems are inventoried and documented. The organization should maintain a current inventory of AI systems, including their purpose, capabilities, dependencies, data sources, intended use cases, and associated risks. Documentation should be sufficient to enable informed risk management decisions and traceability throughout the AI lifecycle.
+
+**Why Implemented**  
+Without a clear, up-to-date inventory of AI systems, organizations cannot effectively map risks, assign accountability, monitor performance, respond to incidents, or demonstrate due diligence to stakeholders or regulators. An AI inventory is the starting point for all subsequent risk management activities in the NIST RMF — without it, risk mapping, measurement, and governance remain blind and fragmented.
+
+**How Katyar Satisfies It**
+
+Katyar automatically maintains a **real-time, auditable inventory** of all AI agents through SDK registration and self-discovery, providing complete visibility into deployed systems.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- At least **1 agent** has been formally registered and onboarded in the workspace.
+
+**Evidence Collected (Quantitative)**  
+- Total number of registered agents  
+- Agent metadata: name, framework (LangChain, CrewAI, custom, etc.), tools used, onboarded timestamp  
+- Last seen/heartbeat timestamp (shows active usage)  
+- Agent status (connected, disconnected, revoked)  
+- Associated API keys and session history
+
+**Katyar Features That Enable System Inventory**
+
+- **Automatic Agent Registration**  
+  Agents self-register on first connection via `katyar.init()` or session creation — no manual entry required.
+
+- **Rich Agent Metadata**  
+  Captures: agent name, framework, tools list, risk level (if set), creation time, last activity — all queryable.
+
+- **Centralized Agent Dashboard**  
+  Single view lists all agents with status, last seen, tool usage summary, and compliance shield indicator.
+
+- **Onboarding Enforcement**  
+  Only onboarded agents (via SDK) contribute to compliance scores and inventory — prevents shadow AI from being invisible.
+
+- **Export & Reporting**  
+  One-click CSV/JSON export of agent inventory for auditors, including timestamps and metadata.
+
+- **Real-time Monitoring**  
+  Agent connections/disconnections appear in live event stream; CLI command `katyar agents list` shows current inventory.
+
+**Remediation Steps to Strengthen This Control**
+
+1. Onboard at least one agent using the SDK:  
+   ```python
+   import katyar
+   katyar.init(api_key="nx_live_...")
+   # or
+   client = KatyarClient(api_key="...")
+   await client.connect("my-first-agent")
