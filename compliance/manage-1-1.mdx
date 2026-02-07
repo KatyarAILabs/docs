@@ -1,0 +1,78 @@
+---
+title: MANAGE-1.1 – Risk Response
+description: NIST AI RMF MANAGE 1.1 requirement for prioritizing and responding to identified AI risks
+---
+
+# MANAGE-1.1 – Risk Response
+
+**Framework**: NIST AI Risk Management Framework (RMF)  
+**Category**: Manage  
+**Subcategory**: MANAGE 1.1
+
+**Clause Description**  
+Risks are prioritized and responded to appropriately. Organizations should develop and implement prioritized risk response plans that address identified AI risks in a timely and effective manner. This includes selecting and deploying appropriate risk treatment options (avoid, mitigate, transfer, accept), assigning responsibilities, establishing timelines, and monitoring the effectiveness of risk responses over time.
+
+**Why This Control Exists**  
+Risk response is the action phase of risk management. Identifying and mapping risks (Map & Govern) is insufficient without concrete mitigation steps. This control ensures that known risks are not left unaddressed, reducing the likelihood and impact of harm, maintaining system trustworthiness, and demonstrating organizational commitment to responsible AI deployment. It is critical for high-impact or high-autonomy systems where unmitigated risks could cause serious consequences.
+
+**How Katyar Helps Achieve Compliance**
+
+Katyar implements risk response through its **semantic firewall, guardrail detections, policy enforcement, and HITL mechanisms** — automatically detecting, blocking, or escalating risks in real time.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- Guardrail events (threat detections, prompt injection blocks, PII masking, secrets detection) exist in the system logs.
+
+**Evidence Captured**  
+- Number of guardrail detection events (last 30 days)  
+- Breakdown by threat type: prompt injection, jailbreak attempt, PII leakage, secrets exfiltration, harmful content, etc.  
+- Actions taken: blocked, masked, flagged for HITL, custom response  
+- Latency between detection and response (typically < 100 ms)  
+- Recent detection timestamps and associated agent/tool
+
+**Key Katyar Capabilities Supporting This Control**
+
+- **Semantic Firewall**  
+  Real-time in-line inspection of prompts, tool calls, and outputs to detect and respond to risks before they propagate.
+
+- **Guardrail Engine**  
+  Built-in detectors for prompt injection, jailbreak, PII, secrets, harmful content — with configurable response actions (block, mask, log, alert).
+
+- **Policy-Driven Risk Treatment**  
+  Policies can trigger deny, require approval, or mask actions based on detected risk levels.
+
+- **HITL Escalation for High-Risk Cases**  
+  Critical detections automatically pause execution and route to human review.
+
+- **Audit & Feedback Loop**  
+  Every detection is logged with full context, response action, and outcome — enabling post-incident review and response effectiveness measurement.
+
+- **Dashboard Risk Insights**  
+  Real-time visibility into detection trends, top threat types, and blocked events.
+
+**Recommended Actions to Strengthen Compliance**
+
+1. Enable guardrail scanning in workspace settings (default is on).  
+2. Run agent scenarios that could trigger detections (e.g., try prompt injection tests, include PII in mock data, attempt jailbreak patterns).  
+3. Confirm detections appear in the Observability / Events tab (look for threat.detected or firewall.blocked events).  
+4. Check Compliance dashboard → MANAGE-1.1 card to verify guardrail events exist.  
+5. (Recommended) Review detection logs and adjust guardrail sensitivity or response actions if needed.
+
+**What Auditors Typically Look For**
+
+- Evidence of **active risk response** — detections leading to concrete actions (block, mask, escalate)  
+- **Timeliness** — near-real-time mitigation (sub-second enforcement preferred)  
+- **Coverage** — detections across multiple threat vectors  
+- **Effectiveness** — blocked/masked events preventing risk realization  
+- **Traceability** — full audit trail of detection → response → outcome
+
+Katyar turns MANAGE-1.1 into an **automated, measurable, always-on risk response layer** — providing both proactive protection and strong, evidence-based proof of effective risk treatment for NIST RMF assessments.
+
+**Official Reference**  
+Read the full NIST AI Risk Management Framework (including MANAGE 1.1):  
+[NIST AI 100-1: Artificial Intelligence Risk Management Framework (AI RMF 1.0)](https://code-of-practice.ai) – see page 26–27, Section 4.4 Manage
+
+---
+
+**Next**: [MANAGE-1.2 – Incident Response](/compliance/controls/manage-1-2)

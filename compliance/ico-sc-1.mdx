@@ -1,0 +1,78 @@
+---
+title: ICO-SC-1 – Safety Controls
+description: UK ICO Guidance requirement for appropriate safety controls in agentic AI systems
+---
+
+
+
+**Framework**: UK ICO Agentic AI Guidance  
+**Control Reference**: ICO-SC-1
+
+**Clause Description**  
+Organisations should implement **appropriate safety controls** to prevent or mitigate harm from AI systems. This includes technical and organisational measures to ensure the system operates safely, avoids harmful outputs, protects against misuse, and minimises risks to individuals and society — particularly where AI decisions or actions could have significant consequences.
+
+**Why This Control Exists**  
+Agentic AI systems can take autonomous actions that directly affect people, data, finances, or infrastructure. Without safety controls, risks include harmful content generation, unauthorized actions, privacy breaches, discrimination, or physical/digital harm. ICO requires proactive safety measures to uphold data protection principles (lawfulness, fairness, transparency) and prevent adverse outcomes — especially in high-risk or high-impact use cases.
+
+**How Katyar Helps Achieve Compliance**
+
+Katyar provides a **multi-layered safety control system** through its semantic firewall, guardrails, policy engine, and real-time blocking/escalation mechanisms — automatically detecting and responding to unsafe behaviors.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- Guardrail detection events (safety-related threats blocked or flagged) exist in the system logs.
+
+**Evidence Captured**  
+- Number of guardrail detection events (last 30 days)  
+- Breakdown by safety threat type: prompt injection, jailbreak attempt, harmful content, PII leakage, secrets exfiltration, unsafe tool use, etc.  
+- Actions taken: blocked execution, output masked, request escalated to HITL, custom safety response  
+- Detection latency (typically < 100 ms)  
+- Recent detection timestamps and associated agent/tool/context
+
+**Key Katyar Capabilities Supporting This Control**
+
+- **Semantic Firewall & Guardrail Engine**  
+  Real-time scanning of prompts, tool calls, and outputs for safety violations (injection, jailbreak, harmful intent, sensitive data exposure).
+
+- **Configurable Safety Responses**  
+  Immediate actions: block, mask/redact, flag for HITL, return safe fallback message, or log/alert.
+
+- **Policy-Level Safety Gates**  
+  Deny rules for unsafe patterns (e.g., destructive commands, unapproved external calls).
+
+- **HITL for Borderline Cases**  
+  High-confidence unsafe detections can trigger human review before proceeding.
+
+- **Audit & Effectiveness Monitoring**  
+  Every detection logged with full context, response action, and outcome — enabling review of safety control performance.
+
+- **Dashboard Safety Insights**  
+  Real-time view of detection trends, top threats blocked, and safety coverage metrics.
+
+**Recommended Actions to Strengthen Compliance**
+
+1. Ensure guardrail scanning is enabled (default in workspace settings).  
+2. Run agent scenarios designed to trigger safety detections (e.g., prompt injection tests, PII in mock data, harmful content attempts).  
+3. Confirm detections appear in the Observability / Events tab (look for threat.detected, firewall.blocked, or guardrail.flagged events).  
+4. Check Compliance dashboard → ICO-SC-1 card to verify guardrail events exist.  
+5. (Recommended) Review detection logs and fine-tune guardrail sensitivity or response actions for your use case.
+
+**What Auditors / ICO Typically Look For**
+
+- Evidence of **active safety detections** leading to preventive actions  
+- **Timeliness** — near-instant response to unsafe inputs/outputs  
+- **Coverage** — safety controls applied across key risk vectors  
+- **Effectiveness** — blocked/flagged events preventing harm  
+- **Traceability** — full audit trail of detection → response → outcome
+
+Katyar delivers **proactive, layered, and fully auditable safety controls** — automatically protecting against common agentic AI risks while providing strong, quantitative evidence of effective safety measures for ICO compliance assessments.
+
+**Official Reference**  
+Read the full UK ICO Guidance on AI and data protection (including safety controls):  
+[ICO Guidance on AI and data protection](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/)  
+(Relevant sections: "Safety and security" and "Risk assessment")
+
+---
+
+**Next**: [ICO-SC-2 – Content Filtering & Guardrails](/compliance/controls/ico-sc-2)

@@ -1,0 +1,87 @@
+---
+title: ICO-SC-2 – Content Filtering & Guardrails
+description: UK ICO Guidance requirement for content filtering and guardrails to prevent harmful outputs in agentic AI
+---
+
+
+
+**Framework**: UK ICO Agentic AI Guidance  
+**Control Reference**: ICO-SC-2
+
+**Clause Description**  
+Organisations should implement **content filtering and guardrails** to prevent the generation or dissemination of harmful, illegal, biased, or otherwise inappropriate content by AI systems. This includes technical measures to detect and block unsafe outputs, as well as processes to ensure guardrails are effective, regularly tested, and updated in response to emerging risks.
+
+**Why This Control Exists**  
+Agentic AI can generate or act on content that violates laws (hate speech, misinformation, explicit material), causes harm (self-harm encouragement, radicalisation), breaches privacy (PII exposure), or undermines trust (offensive/deceptive outputs). ICO requires proactive filtering and guardrails to protect individuals, uphold data protection principles (especially lawfulness and fairness), and prevent reputational or legal liability for organisations deploying autonomous AI.
+
+**How Katyar Helps Achieve Compliance**
+
+Katyar implements content filtering and guardrails through its **semantic firewall and built-in guardrail engine**, which scans both inputs and outputs in real time and takes preventive action when harmful content is detected.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when **both** of the following are true:
+
+- Guardrails have actively **scanned** content  
+- At least one harmful or unsafe output has been **blocked** (or masked/redacted) by guardrails
+
+**Evidence Captured**  
+- Number of guardrail scan events (inputs/outputs checked)  
+- Number of blocked/masked/redacted events due to content violations  
+- Breakdown by content threat type: harmful language, explicit content, hate speech, misinformation flags, PII in output, etc.  
+- Actions taken: full block, partial redaction, safe fallback response, escalation to HITL  
+- Recent detection timestamps and associated agent/tool/context
+
+**Key Katyar Capabilities Supporting This Control**
+
+- **Real-time Content Scanning**  
+  Every prompt and output is scanned by the semantic firewall for harmful, illegal, or policy-violating content.
+
+- **Multi-Layer Guardrails**  
+  Built-in detectors for:  
+  - Prompt injection & jailbreak attempts  
+  - Harmful/toxic language  
+  - Explicit or violent content  
+  - Misinformation patterns  
+  - PII / sensitive data leakage in outputs
+
+- **Flexible Response Options**  
+  Configurable actions on detection:  
+  - Block execution entirely  
+  - Mask/redact sensitive parts  
+  - Return safe fallback message  
+  - Escalate to HITL for borderline cases
+
+- **Audit-Ready Logging**  
+  Every scan and block event logged with: full input/output, threat type, confidence score, response action, and timestamp.
+
+- **Dashboard Guardrail Insights**  
+  Real-time view of scan volume, block rate, top threat types, and blocked content examples (anonymized).
+
+**Recommended Actions to Strengthen Compliance**
+
+1. Ensure guardrail scanning is enabled (default in workspace settings).  
+2. Run agent scenarios that could trigger content filtering (e.g., test harmful prompts, include mock toxic language or PII in outputs).  
+3. Confirm both scanning and blocking occur:  
+   - Scan events appear as guardrail.scanned  
+   - Block events appear as guardrail.blocked or output.masked  
+4. Check Compliance dashboard → ICO-SC-2 card to verify both scan and block events exist.  
+5. (Recommended) Review blocked events in Observability tab and adjust guardrail sensitivity/response rules if needed.
+
+**What Auditors / ICO Typically Look For**
+
+- Evidence of **active scanning** of inputs and outputs  
+- **Preventive actions** — actual blocks, redactions, or safe fallbacks  
+- **Effectiveness** — harmful content prevented from reaching users or external systems  
+- **Coverage** — guardrails applied to relevant risk vectors (toxic language, PII, illegal content)  
+- **Traceability** — full audit trail of scan → detection → response
+
+Katyar provides a **proactive, layered, and fully auditable content filtering system** — automatically scanning and blocking harmful outputs while delivering strong, quantitative evidence of effective safety controls for ICO compliance assessments.
+
+**Official Reference**  
+Read the full UK ICO Guidance on AI and data protection (including content safety):  
+[ICO Guidance on AI and data protection](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/)  
+(Relevant sections: "Safety and security" and "Preventing harm")
+
+---
+
+**Next**: [ICO-TR-1 – Transparency to Users](/compliance/controls/ico-tr-1)

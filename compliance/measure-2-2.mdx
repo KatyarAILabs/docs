@@ -1,0 +1,89 @@
+---
+title: MEASURE-2.2 – Performance Metrics
+description: NIST AI RMF MEASURE 2.2 requirement for defining and measuring AI system performance metrics
+---
+
+
+**Framework**: NIST AI Risk Management Framework (RMF)  
+**Category**: Measure  
+**Subcategory**: MEASURE 2.2
+
+**Clause Description**  
+Performance metrics are defined and measured. Organizations should establish appropriate, meaningful, and relevant metrics to evaluate the performance of AI systems. These metrics should be tracked over time and include, where applicable, measures of accuracy, reliability, robustness, latency, efficiency (computational resources, tokens), fairness, and other domain-specific indicators of system quality.
+
+**Why This Control Exists**  
+Performance measurement is essential to determine whether an AI system is functioning as intended, meeting quality thresholds, and remaining stable over time. Without defined and tracked metrics, organizations cannot detect degradation, compare versions, justify deployment decisions, or provide evidence of reliability — all of which are critical for high-trust AI systems, especially those used in production or high-stakes environments.
+
+**How Katyar Helps Achieve Compliance**
+
+Katyar automatically collects and exposes **performance-related metrics** (latency, token usage, etc.) as part of every agent decision trace, giving organizations concrete, real-time data about system behavior and efficiency.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- Traces exist **and** include performance metrics (specifically **latency** and/or **token usage**).
+
+**Evidence Captured**  
+- Presence of traces containing performance fields  
+- Typical fields collected:  
+  - `latency_ms` — end-to-end or per-step execution time  
+  - `tokens_input` — number of input tokens (LLM calls)  
+  - `tokens_output` — number of output tokens  
+  - `tokens_total` — combined token consumption  
+- Percentage of traces that contain at least one performance metric  
+- Recent trace examples showing metric values
+
+**Key Katyar Capabilities Supporting This Control**
+
+- **Automatic Performance Instrumentation**  
+  Every trace automatically includes:  
+  - Wall-clock latency (start → end)  
+  - Per-step timing when available  
+  - Token counts for LLM calls (when using compatible providers)
+
+- **Structured Trace Format**  
+  Metrics are stored as first-class fields in every trace — easily queryable and exportable
+
+- **Real-time Dashboard Visibility**  
+  Performance metrics shown in event details and aggregate views  
+  (average latency, token consumption trends, outliers)
+
+- **Search & Filtering by Performance**  
+  Filter traces by latency thresholds or token usage  
+  (example: show all calls > 5 seconds or > 10k tokens)
+
+- **Export for Analysis & Reporting**  
+  Full trace export (CSV/JSON) includes all performance metrics — ready for compliance reports or benchmarking
+
+- **Future Extensibility**  
+  Planned support for more advanced metrics (error rates, cost tracking, custom KPIs)
+
+**Recommended Actions to Strengthen Compliance**
+
+1. Ensure agents are actively running and making LLM/tool calls  
+2. Use LLM providers that support token counting (OpenAI, Anthropic, Grok, etc.)  
+3. Generate normal workload — run 10–20 diverse agent interactions  
+4. Verify in the Observability / Events tab that traces show:  
+   - `latency_ms` field  
+   - `tokens_input` / `tokens_output` / `tokens_total` (when applicable)  
+5. Check Compliance dashboard → MEASURE-2.2 card to confirm metrics are present  
+6. (Recommended) Create a simple dashboard view or export showing average latency and token consumption over time
+
+**What Auditors Typically Look For**
+
+- Existence of **performance metrics** in actual traces  
+- **Consistency** — metrics captured across the majority of decisions  
+- **Relevance** — latency and token usage are meaningful indicators of efficiency/reliability  
+- **Traceability** — ability to correlate metrics with specific decisions/outputs  
+- **Longitudinal view** — evidence that performance is being monitored over time
+
+Katyar makes MEASURE-2.2 practically automatic and highly observable — giving you **zero-effort, production-grade performance tracking** that satisfies the requirement while also serving as a valuable engineering and optimization tool.
+
+**Official Reference**  
+Read the full NIST AI Risk Management Framework (including MEASURE 2.2):  
+[NIST AI 100-1: Artificial Intelligence Risk Management Framework (AI RMF 1.0)](https://code-of-practice.ai
+) – see page 24–25, Section 4.3 Measure
+
+---
+
+**Next**: [MEASURE-2.2 – Performance Metrics](/compliance/controls/measure-2-2)

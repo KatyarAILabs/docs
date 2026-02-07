@@ -1,0 +1,84 @@
+---
+title: ICO-HO-2 – Oversight Response Time & Coverage
+description: UK ICO Guidance requirement for timely and adequate human oversight response in agentic AI systems
+---
+
+
+
+**Framework**: UK ICO Agentic AI Guidance  
+**Control Reference**: ICO-HO-2
+
+**Clause Description**  
+Human oversight should be **timely** and provide **adequate coverage** of significant or high-risk decisions made or supported by AI systems. Organisations should ensure that humans can respond promptly to oversight requests and that the oversight process covers the most impactful or sensitive scenarios, with response times and coverage levels appropriate to the risks involved.
+
+**Why This Control Exists**  
+Timely oversight prevents delays that could allow harmful AI decisions to proceed or escalate. Adequate coverage ensures that high-risk or significant decisions are not left solely to AI, maintaining human accountability and reducing the risk of unfair, discriminatory, or privacy-violating outcomes. ICO emphasizes that ineffective or delayed oversight undermines the purpose of human involvement and fails to protect individuals under UK data protection principles.
+
+**How Katyar Helps Achieve Compliance**
+
+Katyar implements timely and well-covered oversight through **configurable SLAs, escalation logic, and comprehensive routing** of high-risk decisions to human reviewers.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when **both** of the following are true:
+
+- Average human response time for HITL requests is **less than 300 seconds** (configurable threshold)  
+- Oversight coverage (percentage of high-risk/significant actions routed to HITL) is **greater than 80%**
+
+**Evidence Captured**  
+- Average HITL response time (seconds) over last 30 days  
+- Oversight coverage percentage (high-risk tool calls routed to HITL / total high-risk calls)  
+- Number of HITL requests and decisions (approved/denied)  
+- Response time distribution (p50, p90, p99 percentiles)  
+- SLA breach count (requests exceeding 300s)  
+- Escalation events triggered due to timeout
+
+**Key Katyar Capabilities Supporting This Control**
+
+- **SLA Enforcement**  
+  Configurable maximum response time (default 300s); breaches trigger alerts or escalation.
+
+- **Smart Escalation Chains**  
+  No response → auto-escalate to secondary approver, manager, or on-call team.
+
+- **Multi-Channel Delivery**  
+  HITL routed to Slack, Teams, email, or dashboard — where teams already work, reducing response friction.
+
+- **Priority & Coverage Controls**  
+  Policies define which actions are "significant/high-risk" and require HITL (coverage tuning).
+
+- **Real-time Dashboard Metrics**  
+  Live view of pending queue, average response time trend, coverage %, SLA compliance.
+
+- **Audit-Ready Logging**  
+  Every request/response includes timestamps (request sent, viewed, decided), response duration, and approver identity.
+
+**Recommended Actions to Strengthen Compliance**
+
+1. Configure approval policies to cover high-risk actions (refunds, bulk sends, sensitive data access, production changes).  
+2. Set up Slack/Teams integration for fast delivery.  
+3. Define a reasonable SLA (e.g., 300s default; adjust based on risk).  
+4. Generate HITL traffic through normal usage or testing.  
+5. Monitor in dashboard → Approvals metrics:  
+   - Average response time < 300s  
+   - Coverage > 80% for high-risk scenarios  
+6. Check Compliance dashboard → ICO-HO-2 card to confirm both criteria are met.  
+7. If coverage is low → add more policies; if response time high → improve escalation or channel setup.
+
+**What Auditors / ICO Typically Look For**
+
+- **Timeliness** — average response well below SLA (e.g., < 300s)  
+- **Coverage** — high-risk decisions consistently routed to humans (>80% typical)  
+- **Effectiveness** — humans have sufficient context and time to make informed decisions  
+- **Evidence** — quantitative metrics (avg time, coverage %) and real decision logs  
+- **Proportionality** — oversight applied where risks are greatest
+
+Katyar provides a **measurable, configurable, and highly responsive** oversight system — combining low-friction delivery, SLA enforcement, escalation, and quantitative tracking to fully satisfy ICO expectations for timely and adequate human involvement in agentic AI.
+
+**Official Reference**  
+Read the full UK ICO Guidance on AI and data protection (including oversight principles):  
+[ICO Guidance on AI and data protection](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/)  
+(Relevant sections: "Human oversight" and "Accountability and governance")
+
+---
+
+**Next**: [ICO-SC-1 – Safety Controls](/compliance/controls/ico-sc-1)

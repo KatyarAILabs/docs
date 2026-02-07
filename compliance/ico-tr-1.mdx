@@ -1,0 +1,80 @@
+---
+title: ICO-TR-1 – Transparency to Users
+description: UK ICO Guidance requirement for transparency to individuals affected by AI decisions
+---
+
+
+
+**Framework**: UK ICO Agentic AI Guidance  
+**Control Reference**: ICO-TR-1
+
+**Clause Description**  
+Organisations should provide **transparency** to individuals affected by decisions made or supported by AI systems. This includes explaining how the AI system works, what data it uses, how decisions are reached, and the possible impacts on individuals — in a clear, concise, and accessible way that enables understanding, contestability, and trust.
+
+**Why This Control Exists**  
+Transparency to affected individuals is a core principle of UK data protection law (UK GDPR Article 5(1)(a) – lawfulness, fairness and transparency). When AI makes or influences decisions that impact people (e.g., profiling, automated decisions, content moderation, recommendations), lack of explanation can lead to distrust, unfair outcomes, inability to challenge decisions, or rights violations. ICO expects organisations to proactively provide meaningful information so individuals can understand, question, and seek redress.
+
+**How Katyar Helps Achieve Compliance**
+
+Katyar implements transparency by **capturing and exposing input/output traces** for every agent interaction — enabling clear explanation of what went into a decision and what came out.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- More than **50%** of traces in the last 30 days include both **input** (prompt/user query) and **output** (final response/action).
+
+**Evidence Captured**  
+- Percentage of traces with both input and output fields present  
+- Total traces recorded in last 30 days  
+- Breakdown: traces with input only, output only, both, or neither  
+- Sample trace payloads showing user prompt → agent response flow  
+- Completeness metrics for key fields (user query, context, final output)
+
+**Key Katyar Capabilities Supporting This Control**
+
+- **Input/Output Trace Logging**  
+  Every decision trace automatically captures: user prompt/input, full context (if provided), intermediate steps (if chain/reasoning), and final output/response.
+
+- **Structured & Interpretable Traces**  
+  Logs include clear separation of input (what user asked), process (agent/tool actions), and output (what was returned) — making explanations straightforward.
+
+- **Dashboard Trace Viewer**  
+  Expandable trace details show input → reasoning (if available) → output in human-readable format.
+
+- **Export for User-Facing Transparency**  
+  One-click export of anonymized traces — suitable for providing to individuals upon request (e.g., subject access requests).
+
+- **Context Passing**  
+  Agents can include explanatory metadata in context dict (e.g., "decision basis", "confidence") to enhance output explainability.
+
+- **Audit Trail for Contestability**  
+  Full input/output history preserved — individuals can see exactly what the system received and produced.
+
+**Recommended Actions to Strengthen Compliance**
+
+1. Ensure agents are onboarded via SDK and actively processing user queries.  
+2. Capture clean inputs: pass user prompts directly to the agent/LLM.  
+3. Ensure outputs are structured/logged (avoid silent failures or empty responses).  
+4. Generate sufficient trace volume through normal usage or testing.  
+5. Verify in Observability / Events tab that >50% of traces show both input and output.  
+6. Check Compliance dashboard → ICO-TR-1 card to confirm the threshold is met.  
+7. (Recommended) Add explanatory context in agent code (e.g., confidence scores, sources) for even richer transparency.
+
+**What Auditors / ICO Typically Look For**
+
+- **Presence of input/output** in decision traces (>50% coverage)  
+- **Clarity** — individuals can understand what data led to the outcome  
+- **Accessibility** — logs/exportable in a format usable for explanations  
+- **Relevance** — captured data helps explain decisions affecting people  
+- **Contestability** — ability for individuals to challenge based on trace evidence
+
+Katyar delivers **practical, automatic, and user-centric transparency** — capturing input/output flows in every trace while providing strong, quantitative proof of compliance with ICO-TR-1 for agentic AI systems.
+
+**Official Reference**  
+Read the full UK ICO Guidance on AI and data protection (including transparency to individuals):  
+[ICO Guidance on AI and data protection](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/)  
+(Relevant sections: "Transparency" and "Explaining decisions")
+
+---
+
+**Next**: [ICO-AC-1 – Accountability & Audit Trail](/compliance/controls/ico-ac-1)

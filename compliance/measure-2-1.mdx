@@ -1,0 +1,74 @@
+---
+title: MEASURE-2.1 – Track & Monitor Decisions
+description: NIST AI RMF MEASURE 2.1 requirement for tracking and monitoring AI system decisions and outcomes
+---
+
+
+
+**Framework**: NIST AI Risk Management Framework (RMF)  
+**Category**: Measure  
+**Subcategory**: MEASURE 2.1
+
+**Clause Description**  
+AI system decisions and outcomes are tracked and monitored. Organizations should establish processes to systematically collect, store, and analyze data on AI system outputs, behaviors, and impacts over time. This includes logging decision rationales (where feasible), performance metrics, anomalies, and any adverse outcomes to enable ongoing evaluation, bias detection, drift identification, and improvement.
+
+**Why Implemented**  
+Continuous tracking of decisions is essential for detecting emergent risks, performance degradation, unintended consequences, or biases that only become visible after deployment. Without monitoring, organizations cannot identify when an AI system is failing, drifting from intended behavior, or causing harm — making post-deployment risk management ineffective and leaving gaps in accountability and improvement cycles.
+
+**How Katyar Satisfies It**
+
+Katyar implements decision tracking through its **comprehensive event and trace logging system**, automatically capturing every agent decision, tool call, policy evaluation, and outcome in real time.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- Traces (detailed decision logs) exist in the last 7 days.
+
+**Evidence Collected (Quantitative)**  
+- Presence of traces (structured decision logs) in the last 7 days  
+- Number of traces recorded  
+- Trace completeness (inclusion of input, reasoning steps if available, output, metadata)  
+- Comparison to raw events (traces vs. simple event logs)  
+- Recent trace timestamps and agent association
+
+**Katyar Features That Enable Decision Tracking**
+
+- **Full Decision Traces**  
+  Every agent action generates a trace that includes: user input/prompt, intermediate reasoning (if LLM chain), tool calls, outputs, policy checks, HITL decisions, guardrail detections, latency, and final outcome.
+
+- **Structured Logging**  
+  Traces are stored in JetStream with rich metadata (agent_id, session_id, trace_id, parent_span if applicable) — far beyond basic events.
+
+- **Real-time Monitoring**  
+  Dashboard shows live trace stream with expandable details (input → reasoning → output flow).
+
+- **Search & Filtering**  
+  Query traces by agent, time range, outcome (allowed/denied/blocked), tool, or anomaly (e.g., high latency, PII detected).
+
+- **Export for Analysis**  
+  One-click export of traces to CSV/JSON for offline analysis, bias detection, or regulatory reporting.
+
+- **Integration Hooks**  
+  Traces support OpenTelemetry-compatible formats (future) for export to external observability tools.
+
+**Remediation Steps to Strengthen This Control**
+
+1. Ensure at least one agent is onboarded and actively running (via SDK session or `katyar.init()`).  
+2. Generate activity: execute tool calls, trigger policies, approvals, or guardrail detections.  
+3. Verify traces appear in the Observability or Events tab (look for structured trace details, not just basic events).  
+4. Check Compliance dashboard → MEASURE-2.1 card to confirm traces exist in the last 7 days.  
+5. (Recommended) Run 5–10 diverse agent interactions to build a robust trace history.
+
+**Auditor Expectations**  
+Assessors expect to see:  
+- **Presence of traces** — not just raw events, but structured decision logs  
+- **Timeliness** — recent traces (within monitoring window)  
+- **Completeness** — traces capture input, process, output, and outcome  
+- **Traceability** — ability to follow a decision from trigger to result  
+- **Usability** — searchable/exportable traces for ongoing monitoring and incident review
+
+Katyar elevates MEASURE-2.1 from basic logging to **rich, structured, real-time decision tracing** — providing organizations with powerful visibility into AI behavior, enabling proactive risk detection, performance tuning, and strong evidence for NIST RMF assessments.
+
+---
+
+**Next**: [MEASURE-2.2 – Performance Metrics](/compliance/controls/measure-2-2)

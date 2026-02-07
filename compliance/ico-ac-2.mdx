@@ -1,0 +1,58 @@
+---
+title: ICO-AC-1 – Accountability & Audit Trail
+description: UK ICO Guidance requirement for accountability and demonstrable audit trails in agentic AI systems
+---
+
+
+
+**Framework**: UK ICO Agentic AI Guidance  
+**Control Reference**: ICO-AC-1
+
+**Clause Description**  
+Organisations should be able to **demonstrate accountability** for their use of AI systems. This includes maintaining appropriate records and audit trails that show how decisions were made, what data was used, who was involved (human or AI), and how risks were managed. Accountability requires organisations to be able to explain and justify their AI processes and outcomes to regulators, auditors, affected individuals, and other stakeholders.
+
+**Why This Control Exists**  
+Accountability is a fundamental principle of UK data protection law (UK GDPR Article 5(2)). For agentic AI — where systems act autonomously — lack of clear records makes it impossible to trace responsibility, investigate incidents, respond to complaints, or prove compliance. ICO expects organisations to maintain robust, attributable audit trails so they can demonstrate responsible use and effective governance, especially when AI impacts individuals' rights, privacy, or fairness.
+
+**How Katyar Helps Achieve Compliance**
+
+Katyar implements strong accountability through **comprehensive, attributable event logging** — ensuring every action is tied to a specific agent identity with full traceability.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- More than **90%** of logged events in the last 30 days are attributed to a specific `agent_name`.
+
+**Evidence Captured**  
+- Percentage of events with a non-null `agent_name` field  
+- Total events recorded in last 30 days  
+- Breakdown: attributed vs. unattributed events  
+- Sample event payloads showing `agent_name`, `agent_id`, `session_id`  
+- Agent registration/onboarding timestamps for traceability
+
+**Key Katyar Capabilities Supporting This Control**
+
+- **Mandatory Agent Attribution**  
+  Every event automatically includes `agent_name` and `agent_id` — set during SDK registration (`katyar.init()` or `connect()`).
+
+- **No Shadow Agents**  
+  Un-onboarded agents (no SDK init) contribute 0% to compliance score and show as unattributed — forcing proper integration.
+
+- **Rich Traceability Fields**  
+  Events include: agent_name, agent_id, session_id, user_id (if provided), tool, action, outcome, timestamp, policy_id, approver (if HITL).
+
+- **Signed & Immutable Logs**  
+  All events persisted in JetStream with cryptographic signatures — tamper-evident and auditable.
+
+- **Dashboard & Export**  
+  Real-time event stream with agent filtering; one-click CSV/JSON export of attributed logs for audits or subject access requests.
+
+- **CLI & API Access**  
+  Query attributed events via `katyar audit query --agent <name>` or REST API.
+
+**Recommended Actions to Strengthen Compliance**
+
+1. Ensure all agents are onboarded via SDK with explicit `agent_name`:  
+   ```python
+   client = KatyarClient(api_key="...")
+   await client.connect(agent_name="payment-processor")

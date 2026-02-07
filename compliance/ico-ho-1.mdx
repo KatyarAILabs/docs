@@ -1,0 +1,79 @@
+---
+title: ICO-HO-1 – Meaningful Oversight
+description: UK ICO Guidance requirement for meaningful human oversight of significant AI decisions
+---
+
+
+
+**Framework**: UK ICO Agentic AI Guidance  
+**Control Reference**: ICO-HO-1
+
+**Clause Description**  
+Organisations should ensure there is **meaningful human oversight** of significant decisions made or supported by AI systems. Oversight should be effective, timely, and proportionate to the risks posed by the system. This includes providing humans with sufficient information and authority to understand, challenge, and if necessary override AI outputs.
+
+**Why This Control Exists**  
+Meaningful oversight prevents AI from making unchecked decisions that could lead to unfair outcomes, discrimination, privacy harm, or other adverse impacts. It upholds accountability, enables contestability, and aligns with the ICO's emphasis on protecting individuals' rights under UK data protection law and broader ethical principles — especially for agentic systems that act autonomously.
+
+**How Katyar Helps Achieve Compliance**
+
+Katyar implements meaningful human oversight through its **configurable, multi-channel Human-in-the-Loop (HITL)** approval system, ensuring humans are actively involved in significant decisions with sufficient context and authority.
+
+**Evaluation Criteria**  
+Katyar considers the control satisfied when:
+
+- Approval policies exist **and** the average human response time for HITL requests meets acceptable thresholds (configurable, default < 300 seconds).
+
+**Evidence Captured**  
+- Number of active approval/HITL policies  
+- Average response time for HITL requests (in seconds) over the last 30 days  
+- Total number of decided HITL events (approved + denied)  
+- Coverage percentage (proportion of significant/high-risk actions routed to HITL)  
+- Response time distribution (histogram or percentiles)
+
+**Key Katyar Capabilities Supporting This Control**
+
+- **Context-Rich Approval Interface**  
+  Approvers receive full prompt, tool details, arguments, risk score, conversation history, and previous similar decisions.
+
+- **Multi-Channel Routing**  
+  HITL notifications delivered via Slack, Microsoft Teams, email, or Katyar dashboard — integrated into existing workflows.
+
+- **Configurable Response SLAs**  
+  Set maximum acceptable response time (e.g., 300 seconds); breaches trigger alerts or escalation.
+
+- **Escalation & Timeout Handling**  
+  If no response within SLA → automatic escalation to secondary approver or on-call team.
+
+- **Mandatory Decision Justification**  
+  Approvers must provide comments (especially on denials) — preserved in audit trail.
+
+- **Dashboard Oversight Metrics**  
+  Real-time queue, average response time trend, coverage percentage, and SLA compliance indicators.
+
+**Recommended Actions to Strengthen Compliance**
+
+1. Create at least one approval policy for significant/high-risk actions (e.g., financial transfers, sensitive data access, bulk communications).  
+2. Ensure policies route to human reviewers (Slack/Teams/channel configured).  
+3. Generate HITL events through normal agent usage or testing.  
+4. Monitor average response time in the dashboard → Approvals metrics section.  
+5. Aim for average response < 300 seconds (adjust SLA if needed).  
+6. Check Compliance dashboard → ICO-HO-1 card to confirm both policies and acceptable response time are met.
+
+**What Auditors / ICO Typically Look For**
+
+- Evidence of **active human involvement** in significant decisions (real approvals/denials)  
+- **Timeliness** — average response time within reasonable bounds  
+- **Effectiveness** — humans have enough context to make informed decisions  
+- **Coverage** — oversight applied to high-risk or impactful scenarios  
+- **Traceability** — full audit trail of who reviewed what, when, and why
+
+Katyar provides a **practical, measurable, and highly transparent** implementation of meaningful oversight — combining rich context delivery, SLA enforcement, and quantitative metrics to meet ICO expectations while keeping human review friction low.
+
+**Official Reference**  
+Read the full UK ICO Guidance on AI and data protection (including oversight principles):  
+[ICO Guidance on AI and data protection](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/)  
+(Relevant sections: "Human oversight" and "Accountability and governance")
+
+---
+
+**Next**: [ICO-HO-2 – Oversight Response Time & Coverage](/compliance/controls/ico-ho-2)
