@@ -63,14 +63,6 @@
               "compliance/ico-tr-1",
               "compliance/ico-ac-2"
             ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
           }
         ]
       },
@@ -107,7 +99,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://katyar.vercel.app"
     }
   },
   "contextual": {

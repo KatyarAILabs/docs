@@ -1,83 +1,91 @@
 ---
 title: EU-9.1 – Risk Management System
-description: EU AI Act Article 9 requirement for a risk management system in high-risk AI
+description: Requirement for a continuous, iterative risk management process in high-risk AI systems
+sidebar_position: 5
 ---
 
 
 
-**Framework**: EU AI Act  
-**Article**: 9
+**Framework**  
+EU AI Act
 
-**Clause Description**  
-High-risk AI systems shall be designed and developed with a **risk management system** that shall be continuously run throughout the entire lifecycle of the high-risk AI system. The risk management system shall consist of a continuous iterative process planned and run throughout the entire lifecycle of the high-risk AI system, requiring regular systematic updating. It shall comprise the following steps:  
-(a) identification and analysis of the known and foreseeable risks  
-(b) estimation and evaluation of the risks  
-(c) evaluation of other possibly arising risks  
-(d) adoption of appropriate risk management measures  
+**Reference**  
+Article 9
+
+**Official Requirement**  
+High-risk AI systems shall be designed and developed with a **risk management system** that operates continuously throughout the entire lifecycle of the system. The risk management system must consist of a planned, iterative process that is regularly and systematically updated. It shall include the following steps:
+
+(a) identification and analysis of known and foreseeable risks  
+(b) estimation and evaluation of those risks  
+(c) evaluation of other risks that may emerge  
+(d) adoption of appropriate and targeted risk management measures  
 (e) testing of the high-risk AI system  
-(f) monitoring, reporting and documentation of serious incidents and malfunctions.
+(f) monitoring, reporting and documentation of serious incidents and malfunctions
 
-**Why Implemented**  
-The risk management system is the backbone of the EU AI Act for high-risk systems. It forces providers and deployers to proactively identify, assess, mitigate, and monitor risks across the full AI lifecycle — preventing foreseeable harm, reducing residual risks to an acceptable level, and ensuring ongoing safety after deployment. Without it, organizations cannot demonstrate due diligence or traceability when incidents occur.
+**Purpose of the Requirement**  
+This requirement forms the foundational safety and accountability mechanism for high-risk AI systems. It compels organisations to proactively and continuously identify, assess, mitigate and monitor risks across the full lifecycle — preventing foreseeable harm, minimising residual risk to an acceptable level, and maintaining safety throughout deployment and operation. Without an effective risk management system, it is impossible to demonstrate due diligence, traceability or compliance when incidents occur or regulatory authorities request evidence.
 
-**How Katyar Satisfies It**
+**How Katyar Addresses This Requirement**
 
-Katyar implements the risk management system requirement through **granular, intent-aware policy controls** that cover different tools, actions, and risk vectors — creating a living set of mitigation measures that evolve with usage.
+Katyar implements a **living, intent-aware risk management system** through its granular policy engine, MCP tool hub, semantic firewall, and continuous monitoring loop — creating a dynamic, evolvable set of targeted mitigation measures that adapt to real system usage and emerging risks.
 
 **Evaluation Criteria**  
-Katyar considers the control satisfied when:
+Katyar considers the risk management system requirement satisfied when:
 
-- At least **3 distinct policies** exist that cover **different tools or action types** (e.g., one for database writes, one for payment refunds, one for external API calls).
+- At least **3 distinct, enabled policies** exist that address **different tools or action types** (e.g., one policy covering database writes, one covering payment refunds, one covering external API calls).
 
-**Evidence Collected (Quantitative)**  
-- Total number of active policies  
+**Evidence Collected (Quantitative & Traceable)**  
+- Total number of active/enabled policies  
 - Number of unique tools targeted by policies  
-- Diversity of rule types (e.g., approval, deny, mask PII, require context)  
-- Coverage of high-risk categories (financial, data access, external communication, etc.)  
-- Policy creation/revision timestamps (to show ongoing iteration)
+- Diversity of rule types (e.g., require approval, deny, mask PII, require context)  
+- Coverage across high-risk categories (financial transactions, data access, external communication, infrastructure changes, etc.)  
+- Policy creation / revision timestamps (demonstrating ongoing iteration and systematic updating)
 
-**Katyar Features That Enable Risk Management**
+**Katyar Features Supporting Risk Management**
 
-- **Policy Engine with Tool-Level Granularity**  
-  Policies can target specific tools (via MCP), methods, parameters, amounts, users, or time windows.
+- **Granular Policy Engine**  
+  Policies can target specific tools, methods, parameters, amounts, users, time windows or agent risk levels.
 
-- **MCP Hub Integration**  
-  Tools are discovered and schema-enforced — policies can block invalid or risky parameter combinations before execution.
+- **MCP Tool Hub Integration**  
+  Tools are automatically discovered and schema-enforced — preventing invalid or high-risk parameter combinations before execution.
 
-- **Semantic Firewall Layer**  
-  Prompt injection, jailbreak, PII leakage, and secrets exfiltration are automatically detected and mitigated.
+- **Semantic Firewall & Guardrails**  
+  Real-time detection and mitigation of prompt injection, jailbreak attempts, PII leakage and secrets exfiltration.
 
-- **Iterative & Living Controls**  
-  Policies can be created, edited, versioned, and tested in real time via dashboard or CLI.
+- **Versioned & Iterative Controls**  
+  Policies can be created, edited, versioned, tested and rolled back in real time via dashboard or CLI.
 
-- **Audit & Monitoring Loop**  
-  Every policy decision, guardrail detection, and HITL action is logged — feeding back into risk assessment.
+- **Audit & Continuous Feedback Loop**  
+  Every policy decision, guardrail detection and human-in-the-loop action is cryptographically signed and logged — providing direct input for ongoing risk assessment.
 
-- **Recommendations Engine**  
-  Dashboard suggests new policies based on observed gaps (e.g., "No policy covers bulk email → high risk of spam/phishing").
+- **Proactive Recommendations**  
+  The dashboard automatically suggests new or updated policies based on observed gaps (e.g. “No policy covers bulk email → elevated risk of spam/phishing”).
 
-**Remediation Steps to Strengthen This Control**
+**Recommended Steps to Achieve & Demonstrate Compliance**
 
-1. Identify your high-risk tools/actions (e.g., database, payments, email, code deployment).  
-2. Create at least 3 separate policies, each targeting a different tool or risk type:  
-   - Policy 1: Require approval for payment refunds > $500  
-   - Policy 2: Deny destructive SQL commands (DROP, DELETE without WHERE)  
-   - Policy 3: Mask PII before returning database query results  
-3. Save and enable the policies in the dashboard.  
-4. Run agent scenarios that exercise each policy.  
-5. Verify in the Compliance dashboard → EU-9.1 card that the control is satisfied (≥ 3 distinct policies shown).  
-6. Periodically review and add more policies as new tools or risks emerge.
+1. Identify your high-risk tools, actions and scenarios (e.g. database operations, payment processing, email sending, code deployment, external API calls).  
+2. Create at least **3 separate policies**, each targeting a different tool or risk vector:  
+   - Example 1: Require approval for payment refunds > $500  
+   - Example 2: Deny destructive SQL commands (DROP, DELETE without WHERE)  
+   - Example 3: Mask PII before returning database query results  
+3. Enable the policies in the dashboard.  
+4. Execute agent scenarios that trigger each policy (generate real events).  
+5. Verify in the **Compliance dashboard** that ≥ 3 distinct policies are recognised and active.  
+6. Periodically review and extend the policy set as new tools, risks or use cases emerge.
 
-**Auditor Expectations**  
-Regulators expect to see:  
-- Evidence of **multiple, targeted risk controls** (not a single generic policy)  
-- Coverage across **different tools and risk categories**  
-- Ongoing iteration (policy creation dates, revisions)  
-- Traceability from observed risks → specific mitigation measures  
-- Demonstration that risks are actively reduced (e.g., blocked events, masked outputs)
+**What Regulators & Auditors Expect**
 
-Katyar turns the abstract "risk management system" requirement into a **concrete, measurable, and evolvable set of controls** — giving you both real safety and strong, data-backed proof for compliance audits.
+- Evidence of **multiple, targeted mitigation controls** — not a single generic policy  
+- Coverage across **different tools, actions and risk categories**  
+- Ongoing iteration — visible through policy creation and revision timestamps  
+- Traceability — clear mapping from identified risks to specific mitigation measures  
+- Demonstration that risks are actively reduced — blocked events, masked outputs, escalated approvals
+
+Katyar transforms this lifecycle requirement into a **concrete, measurable and continuously evolving set of controls** — delivering both genuine risk reduction and strong, evidence-based proof for regulatory assessments and conformity procedures.
+
+**Official Reference**  
+Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)  
+→ [Article 9 – Risk management system](https://artificialintelligenceact.eu/article/9/)
 
 ---
 
-**Next**: [EU-12.1 – Record Keeping & Auditability](/compliance/controls/eu-12-1)

@@ -3,18 +3,13 @@ title: EU-12.1 – Record Keeping & Auditability
 description: EU AI Act Article 12 requirement for automatic logging in high-risk AI systems
 ---
 
-
-
 **Framework**: EU AI Act  
 **Article**: 12
 
-**Clause Description**  
+**Official Requirement**  
 Providers of high-risk AI systems shall keep the logs referred to in paragraph 1 automatically for a period of at least **six months**, unless provided otherwise in Union or national law. The logs shall be kept in a manner that ensures their completeness, integrity and confidentiality. They shall be made available to national competent authorities upon a reasoned request.
 
-**Why Implemented**  
-Reliable, automatic logging is essential for post-market monitoring, incident investigation, regulatory oversight, and accountability. Without comprehensive records, it is impossible to reconstruct AI system behavior, identify root causes of failures, prove compliance, or respond to complaints and audits. The six-month retention period balances operational feasibility with the need for long-term traceability in high-risk contexts.
-
-**How Katyar Satisfies It**
+**How Katyar Addresses This Requirement**
 
 Katyar implements record-keeping through its **cryptographically signed, persistent event logging system** powered by NATS JetStream, capturing every relevant agent interaction with full detail and integrity guarantees.
 
@@ -50,7 +45,7 @@ Katyar considers the control satisfied when:
 - **Real-time Visibility**  
   Events stream live in the dashboard with millisecond timestamps and full inspection.
 
-**Remediation Steps to Strengthen This Control**
+**Recommended Steps to Strengthen This Control**
 
 1. Ensure at least one agent is actively running and making tool calls (onboard via `katyar.init()` if not already).  
 2. Generate activity: run test queries, trigger policies, approvals, or guardrail detections.  
@@ -70,6 +65,6 @@ Regulators expect to see:
 
 Katyar’s logging exceeds the minimum by providing **real-time visibility**, **searchability**, **export readiness**, and **integrity guarantees** — turning record-keeping from a compliance burden into a powerful observability and debugging tool.
 
----
-
-**Next**: [EU-13.1 – Transparency to Deployers & Users](/compliance/controls/eu-13-1)
+**Official Reference**  
+Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)  
+→ [Article 12 – Logging](https://artificialintelligenceact.eu/article/12/)

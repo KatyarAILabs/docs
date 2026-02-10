@@ -3,18 +3,13 @@ title: EU-14.1 – Meaningful Human Oversight
 description: EU AI Act Article 14.1 requirement for effective human oversight of high-risk AI systems
 ---
 
-
-
 **Framework**: EU AI Act  
 **Article**: 14.1
 
-**Clause Description**  
+**Official Requirement**  
 High-risk AI systems shall be designed and developed in such a way, including with appropriate human–machine interface tools, that they can be **effectively overseen** by natural persons during the period in which the AI system is in use. Oversight shall aim to prevent or minimize risks to health, safety or fundamental rights that may emerge when the high-risk AI system is used in accordance with its intended purpose or under conditions of reasonably foreseeable misuse.
 
-**Why Implemented**  
-This is one of the cornerstone requirements of the EU AI Act for high-risk systems. It ensures that AI does not operate with full autonomy in scenarios that could affect people’s health, safety, or fundamental rights. Without meaningful human oversight, organizations risk automation bias, undetected harmful decisions, loss of accountability, cascading failures, and severe legal exposure under the Regulation.
-
-**How Katyar Satisfies It**
+**How Katyar Addresses This Requirement**
 
 Katyar provides a **production-grade, auditable implementation** of meaningful human oversight through its **Async Human-in-the-Loop (HITL)** system. The control is evaluated automatically using real workspace activity.
 
@@ -51,7 +46,7 @@ Katyar considers the control satisfied when both of the following are true:
 - **Real-time Dashboard Queue**  
   Pending approvals are visible with priority indicators, SLA timers, and search/filter capabilities.
 
-**Remediation Steps to Strengthen This Control**
+**Recommended Steps to Strengthen This Control**
 
 1. Create at least one approval policy targeting a clearly high-risk action  
    (examples: refunds > $1,000, production deploys, bulk email sends, database writes).
@@ -74,6 +69,6 @@ Regulators will look for:
 
 Katyar exceeds minimum requirements by combining **asynchronous workflow**, **rich context delivery**, **escalation logic**, and **quantitative metrics** — making oversight both practical for teams and demonstrably effective for compliance audits.
 
----
-
-**Next**: [EU-14.2 – Ability to Override AI Decisions](/compliance/controls/eu-14-2)
+**Official Reference**  
+Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)  
+→ [Article 14 – Human oversight](https://artificialintelligenceact.eu/article/14/)

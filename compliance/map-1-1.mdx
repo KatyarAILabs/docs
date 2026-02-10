@@ -3,18 +3,14 @@ title: MAP-1.1 – System Inventory
 description: NIST AI RMF MAP 1.1 requirement for inventory and documentation of AI systems
 ---
 
-
 **Framework**: NIST AI Risk Management Framework (RMF)  
 **Category**: Map  
 **Subcategory**: MAP 1.1
 
-**Clause Description**  
+**Official Requirement**  
 AI systems are inventoried and documented. The organization should maintain a current inventory of AI systems, including their purpose, capabilities, dependencies, data sources, intended use cases, and associated risks. Documentation should be sufficient to enable informed risk management decisions and traceability throughout the AI lifecycle.
 
-**Why Implemented**  
-Without a clear, up-to-date inventory of AI systems, organizations cannot effectively map risks, assign accountability, monitor performance, respond to incidents, or demonstrate due diligence to stakeholders or regulators. An AI inventory is the starting point for all subsequent risk management activities in the NIST RMF — without it, risk mapping, measurement, and governance remain blind and fragmented.
-
-**How Katyar Satisfies It**
+**How Katyar Addresses This Requirement**
 
 Katyar automatically maintains a **real-time, auditable inventory** of all AI agents through SDK registration and self-discovery, providing complete visibility into deployed systems.
 
@@ -50,7 +46,7 @@ Katyar considers the control satisfied when:
 - **Real-time Monitoring**  
   Agent connections/disconnections appear in live event stream; CLI command `katyar agents list` shows current inventory.
 
-**Remediation Steps to Strengthen This Control**
+**Recommended Steps to Strengthen This Control**
 
 1. Onboard at least one agent using the SDK:  
    ```python

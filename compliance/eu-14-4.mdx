@@ -3,18 +3,13 @@ title: EU-14.4 – Stop Operation
 description: EU AI Act Article 14.4(d) requirement to enable humans to fully disregard or stop high-risk AI system outputs
 ---
 
-
-
 **Framework**: EU AI Act  
 **Article**: 14.4(d)
 
-**Clause Description**  
+**Official Requirement**  
 Human oversight measures shall enable the individuals to whom human oversight is assigned to **fully disregard the output produced by the high-risk AI system**.
 
-**Why Implemented**  
-This provision ensures that humans can completely ignore, disable, or nullify AI outputs when they are unreliable, harmful, or inappropriate — preventing any reliance on dangerous or erroneous AI decisions. It is the ultimate safeguard in the oversight chain: if monitoring fails, overrides fail, and intervention is too late, humans must still have the ability to completely stop depending on the AI system. This protects against persistent risks from malfunctioning or compromised high-risk AI.
-
-**How Katyar Satisfies It**
+**How Katyar Addresses This Requirement**
 
 Katyar implements "stop operation" capability through **API key revocation** and **agent disconnection controls**, allowing immediate and complete disabling of AI agent functionality.
 
@@ -50,7 +45,7 @@ Katyar considers the control satisfied when:
 - **Visibility & Confirmation**  
   Dashboard shows revoked keys with red status; agent list updates to "Disconnected" or "Stopped" state.
 
-**Remediation Steps to Strengthen This Control**
+**Recommended Steps to Strengthen This Control**
 
 1. Ensure your workspace has at least one active API key (created during onboarding or in Settings → API Keys).  
 2. Test the stop mechanism:  
@@ -69,6 +64,6 @@ Regulators expect to see:
 
 Katyar’s revocation-based stop operation is **instantaneous**, **centralized**, and **fully auditable** — providing a stronger, more reliable "stop" mechanism than a traditional "stop button" in many legacy systems, while remaining simple for operators and provable for compliance.
 
----
-
-**Next**: [EU-9.1 – Risk Management System](/compliance/controls/eu-9-1)
+**Official Reference**  
+Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)  
+→ [Article 14 – Human oversight](https://artificialintelligenceact.eu/article/14/)

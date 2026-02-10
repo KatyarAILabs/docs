@@ -3,17 +3,13 @@ title: EU-14.3 – Real-time Intervention
 description: EU AI Act Article 14.4(c) requirement for real-time human intervention in high-risk AI systems
 ---
 
-
 **Framework**: EU AI Act  
 **Article**: 14.4(c)
 
-**Clause Description**  
+**Official Requirement**  
 Human oversight measures shall enable the individuals to whom human oversight is assigned to **intervene to interrupt**, through a "stop" button or a similar procedure, the functioning of the high-risk AI system.
 
-**Why Implemented**  
-High-risk AI can behave unexpectedly, escalate risks rapidly, or enter unsafe states during operation. Real-time intervention capability allows humans to immediately halt the system when anomalies, malfunctions, or foreseeable misuse are detected — preventing harm to health, safety, fundamental rights, or critical infrastructure before damage occurs.
-
-**How Katyar Satisfies It**
+**How Katyar Addresses This Requirement**
 
 Katyar implements real-time intervention through its **policy engine’s deny mechanism**, which acts as an equivalent to a "stop" procedure by preventing execution of high-risk actions before they reach tools or external systems.
 
@@ -52,7 +48,7 @@ Katyar considers the control satisfied when:
 - **Dashboard Visibility**  
   Blocked events appear in real-time event stream with red indicators, policy match details, and quick links to the blocking policy.
 
-**Remediation Steps to Strengthen This Control**
+**Recommended Steps to Strengthen This Control**
 
 1. Create at least one policy with an explicit 'deny' action for a clearly high-risk pattern.  
    Examples:  
@@ -79,6 +75,6 @@ Regulators expect to see:
 
 Katyar’s deny-based intervention is **faster than manual stop buttons** (sub-100 ms enforcement) while remaining fully auditable and configurable — providing both proactive safety and strong regulatory proof.
 
----
-
-**Next**: [EU-14.4 – Stop Operation](/compliance/controls/eu-14-4)
+**Official Reference**  
+Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)  
+→ [Article 14 – Human oversight](https://artificialintelligenceact.eu/article/14/)
