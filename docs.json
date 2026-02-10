@@ -14,10 +14,16 @@
         "tab": "Guides",
         "groups": [
           {
+            "group": "Overview",
+            "pages": [
+              "introduction"
+            ]
+          },
+          {
             "group": "Getting started",
             "pages": [
-              "introduction",
-              "quickstart",
+              "dashboardNavigation",
+              "installation",
               "installation&setup"
             ]
           },
