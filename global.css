@@ -1,0 +1,11 @@
+/* Hide Mintlify branding */
+a[href*="mintlify.com"] {
+    display: none !important;
+}
+
+/* Increase logo size */
+img[src*="logo-with-name.svg"] {
+    height: 45px !important;
+    max-height: 100px !important;
+    width: auto !important;
+}

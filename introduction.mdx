@@ -1,79 +1,88 @@
 ---
 title: What is Katyar?
-description: Secure governance and compliance platform for autonomous AI agents in regulated enterprises.
+description: Compliance platform for autonomous AI agents in regulated enterprises.
 ---
 
+## Katyar — Verifiable Compliance for Autonomous AI Agents
 
+**Katyar is the zero-trust control plane purpose-built to make autonomous AI agents compliant in regulated enterprises.**
 
+It sits between your agents and critical systems — enforcing strong traceability, graduated human oversight, automated quantitative compliance scoring, and full audit readiness across EU AI Act, NIST AI RMF, UK ICO, DORA, NIS2, and SOC 2.
 
-**Katyar is the zero-trust control plane purpose-built for autonomous AI agents in regulated enterprises.**
+Katyar delivers **verifiable autonomy** — agents operate freely within defined boundaries, with compliance scores that start at **0%** and rise only when real controls are exercised — no inflated metrics, no false green.
 
-It sits between your agents and critical systems — enforcing strong identity, intent-aware authorization, semantic threat prevention, graduated human oversight, full traceability, and quantitative compliance scoring across EU AI Act, NIST AI RMF, UK ICO, DORA, NIS2, and SOC 2.
+## The Compliance Gap Blocking Agent Adoption
 
-Katyar delivers **verifiable autonomy** — agents operate freely within defined boundaries, but never unchecked.  
-Compliance scores start at **0%** and rise only when real controls are exercised — no inflated metrics, no false green.
+Enterprises want production-scale agentic workflows but are stalled by three critical compliance problems:
 
-## The Problem: The Agent "Trust Gap"
+### 1. Regulatory Fines
 
-Enterprises want **production-scale agentic workflows**, but face blocked adoption due to:
+Non-compliance with major frameworks — especially the **EU AI Act** — can trigger fines of up to **€35 million or 7% of global annual turnover**, whichever is higher.
 
-<CardGroup cols={2}>
-  <Card title="Ghost Agents" icon="ghost">
-    No verifiable identity, excessive privileges, and impossible to audit or revoke access for autonomous actors.
-  </Card>
-  <Card title="Semantic Attacks" icon="bug">
-    Prompt injection, jailbreaks, and memory poisoning that bypass traditional WAFs and API gateways.
-  </Card>
-  <Card title="High-Risk Autonomy" icon="triangle-exclamation">
-    Money movement, production changes, and PII access running fully unattended without oversight.
-  </Card>
-  <Card title="Regulatory Pressure" icon="scale-balanced">
-    EU AI Act, DORA, NIS2, and NIST RMF demanding HITL, explainability, and rigorous audit trails.
-  </Card>
-</CardGroup>
+- High-risk AI systems without proper oversight and documentation are automatically non-compliant  
+- Lack of explainability, traceability, or human review = direct violation  
+- One serious incident can trigger investigations and multimillion-euro penalties
 
-Result: **Risk-averse scaling**. Teams build agents, but production deployment waits for verifiable control.
+### 2. Hidden Agent Risks
 
-## How Katyar Protects Your Agents
+Agents silently call external APIs, access PII, modify production systems, or execute high-stakes tools without meaningful oversight — creating massive undetected liability.
 
-Katyar enforces **four integrated layers of protection** in real time:
+- Actions lack verifiable provenance  
+- No automatic pause or justification for risky decisions  
+- Shadow / ungoverned agents proliferate across teams
 
-<CardGroup cols={2}>
-  <Card title="1. Strong Federated Identity" icon="fingerprint">
-    Agents anchored to enterprise identity (Clerk + OIDC/SAML). No static keys, no anonymous sessions — every action traceable to a named identity.
-  </Card>
-  <Card title="2. Semantic Firewall" icon="shield-virus">
-    Real-time scanning (`&lt;100 ms`) blocks prompt injection, jailbreaks, PII leakage, and toxic content using LLM Guard + rule engine.
-  </Card>
-  <Card title="3. Intent-Aware Policy" icon="traffic-light">
-    Granular, condition-based authorization (tool, method, parameters, amount, time) with native MCP support for filtered tool discovery.
-  </Card>
-  <Card title="4. Graduated HITL" icon="user-gear">
-    High-risk actions pause and route to Slack/Teams/Dashboard for review with timeout, escalation, and mandatory justification.
-  </Card>
-</CardGroup>
+### 3. Compliance via Spreadsheets
 
-## Key Enterprise Outcomes
+Manual evidence collection is slow, error-prone, and instantly outdated the moment an agent ships new code or behavior changes.
 
-| Challenge | Katyar Outcome |
-| :--- | :--- |
-| **Uncontrolled Privileges** | Verifiable identity + least-privilege enforcement |
-| **Semantic Attacks** | Sub-100 ms guardrail blocking + detection logs |
-| **Lack of Oversight** | Configurable HITL with escalation & justification |
-| **Manual Compliance** | Automatic 21-control scoring + exportable evidence |
-| **Shadow AI** | Centralized agent inventory + onboarding gating |
-| **Fearful Rollout** | Safe, auditable path to production autonomy |
+- Audit trails become incomplete overnight  
+- Regulators receive stale or inconsistent evidence  
+- Teams waste weeks preparing for every audit
+Result: **Risk-averse paralysis**. Teams build powerful agents in sandboxes, but production deployment remains blocked indefinitely.
+
+## How Katyar Closes the Compliance Gap
+
+Katyar enforces compliance in real time through four tightly integrated layers:
+
+1. **Full Traceability**  
+   Every agent action is logged and anchored to a verifiable enterprise identity — complete provenance for audits.
+
+2. **Graduated Human Oversight (HITL)**  
+   High-risk actions automatically pause and route to Slack / Teams / dashboard for review — with timeouts, escalation paths, and mandatory justification logs.
+
+3. **Quantitative Compliance Scoring**  
+   Starts at 0% — increases only when controls are demonstrably exercised — exportable evidence pack for regulators (21+ controls aligned to EU AI Act, DORA, NIS2, SOC 2, NIST AI RMF, etc.).
+
+4. **Centralized Agent Inventory**  
+   Single view of all agents + gated onboarding to eliminate shadow AI deployments.
+
+## Key Compliance Outcomes
+
+| Challenge                        | Katyar Outcome                                      |
+|----------------------------------|-----------------------------------------------------|
+| Manual evidence collection       | Automatic scoring + exportable audit evidence       |
+| Hidden / unmonitored agent risk  | Traceable logs + configurable HITL with justifications |
+| Exposure to multimillion-euro fines | Provable alignment with EU AI Act + major frameworks |
+| Outdated compliance artifacts    | Real-time updates + always-current scoring          |
+| Shadow AI deployments            | Centralized inventory + enforced onboarding         |
 
 ## Who Should Use Katyar?
 
-- **Financial Services**: DORA, EU AI Act, PSD3 compliance
-- **Healthcare**: HIPAA, EU AI Act, ISO 27001 alignment
-- **Critical Infrastructure**: NIS2, CISA, EU AI Act requirements
-- **Enterprise Standards**: SOC 2 Type II, ISO 42001, NIST AI RMF
-- **Agent Builders**: Scaling customer service, DevOps, and sales enablement agents
+Every **agentic AI company** that wants to:
+
+- Make their agents **compliant** with EU AI Act, DORA, NIS2, SOC 2 and similar frameworks  
+- Avoid paying **multimillion-euro fines** for non-compliance
+
+Especially teams building or deploying agents in:
+
+- Financial services  
+- Insurance  
+- Healthcare  
+- Critical infrastructure  
+- Any customer-facing or high-stakes enterprise vertical
 
 ## The Bottom Line
 
-In 2026 and beyond, AI is **action-oriented** — and action without control is liability.
+In 2026 and beyond, autonomous AI is action-oriented — and action without **verifiable, auditable compliance** is a direct path to regulatory penalties.
 
-Katyar is the platform that makes autonomous actions **safe, auditable, compliant, and provably governed**.
+Katyar turns compliance from a painful, manual bottleneck into a **scalable, automated enabler** — so your agents can move to production safely, provably, and without the fear of €35M fines.
