@@ -4,7 +4,7 @@ a[href*="mintlify.com"] {
 }
 
 /* Increase logo size */
-img[src*="logo-with-name.svg"] {
+img[src*="/logo/katyar-with-name.svg"] {
     height: 45px !important;
     max-height: 100px !important;
     width: auto !important;

@@ -74,8 +74,8 @@
     }
   },
   "logo": {
-    "light": "/logo/logo-with-name.svg",
-    "dark": "/logo/logo-with-name.svg"
+    "light": "/logo/katyar-with-name.svg",
+    "dark": "/logo/katyar-with-name.svg"
   },
   "navbar": {
     "links": [
