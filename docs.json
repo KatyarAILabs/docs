@@ -87,7 +87,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://landingpage-v2-brown.vercel.app/"
+      "href": "https://katyar.com/"
     }
   },
   "contextual": {
@@ -104,7 +104,7 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
+      "x": "https://x.com/katyartech",
       "github": "https://github.com/KatyarAiLabs",
       "linkedin": "https://linkedin.com/company/mintlify"
     }
