@@ -3,9 +3,28 @@ a[href*="mintlify.com"] {
     display: none !important;
 }
 
-/* Increase logo size */
-img[src*="/logo/katyar-with-name.svg"] {
-    height: 45px !important;
-    max-height: 100px !important;
+/* Logo size */
+img[src*="/logo/katyar.png"] {
+    height: 64px !important;
+    max-height: 120px !important;
     width: auto !important;
+    object-fit: contain !important;
+    transform: rotate(32deg) !important;
+}
+
+/* Logo container: row layout + "Katyar" text after the image */
+a:has(img[src*="/logo/katyar.png"]) {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 4px !important;
+    text-decoration: none !important;
+}
+
+a:has(img[src*="/logo/katyar.png"])::after {
+    content: "KATYAR" !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.3px !important;
+    color: inherit !important;
 }

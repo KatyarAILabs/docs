@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "Katyar",
   "colors": {
-    "primary": "#f59e0b",
-    "light": "#fbbf24",
-    "dark": "#d97706"
+    "primary": "#60a5fa",
+    "light": "#93c5fd",
+    "dark": "#3b82f6"
   },
   "branding": {
     "poweredBy": false
@@ -13,7 +13,7 @@
   "css": [
     "global.css"
   ],
-  "favicon": "/Group-14.svg",
+  "favicon": "/logo/Frame-14.png",
   "navigation": {
     "tabs": [
       {
@@ -74,8 +74,8 @@
     }
   },
   "logo": {
-    "light": "/Group-16.svg",
-    "dark": "/Group-16.svg"
+    "light": "/logo/katyar.png",
+    "dark": "/logo/katyar.png"
   },
   "navbar": {
     "links": [
